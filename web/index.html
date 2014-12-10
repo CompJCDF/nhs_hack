@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="chrome=1">
+        <link rel="stylesheet" type="text/css" href="css/map_style.css">
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <title>Welsh Boundary Data</title>
+        <!--[if lt IE 9]>
+            <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+
+        <div id="left_column">
+            <section class="title">
+                <h1>Welsh Boundary Data</h1>
+                <p>This project is maintained by <a href="https://github.com/compjcdf">compjdf</a> -- <a href="http://compj.cs.cf.ac.uk">compj.cs.cf.ac.uk</a><br />
+                <a href="https://github.com/CompJCDF/nhs_hack">View the Project on GitHub</a></p>
+            </section>
+
+            <section class="content">
+            <p>Welsh boundary data</p>
+
+            <p>All data is converted from the generalised clipped boundaries provided by the Office of National Statistics, National Records Scotland and Ordnance Survey. Data has been converted to GeoJSON from original shapefiles using ogr2ogr, then converted to TopoJSON using topojson.</p>
+
+            <p>Contains Ordnance Survey, Office of National Statistics and National Records Scotland data © Crown copyright and database right [2014]. Ordnance Survey data covered by OS OpenData Licence.  Any further sub-licences must retain this attribution.</p>
+
+            <p>Looking for some boundary data that isn't here? <a href="https://github.com/CompJCDF/nhs_hack/issues" target="_blank">Get in touch!</a></p>
+            </section>
+
+            <form id="choiceform">
+                <p> 
+                    I would like boundary data for Wales divided into
+                    <select name="resolution" id="resolution">
+                        <option value="lad">Local Authority Districts</option>
+                        <option value="wpc">Westminster Parliamentary Constituencies</option>
+                        <option value="wards">Westminster Parliamentary Wards</option>
+                        <option value="nawc">National Assembly for Wales Constituencies</option>
+                        <option value="nawer">National Assembly for Wales Electoral Regions</option>
+                        <option value="lhb">Local Health Boards</option>
+                    </select>
+                </p>
+                <p>Select a map area to view properties below</p>
+            </form>
+
+            <section id="data_table">
+            </section>
+        </div>
+        <div id="right_column">
+            <section id="map">
+            </section>
+        </div>
+
+        <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.1.0/topojson.min.js"></script>
+
+        <script src="js/map.js"></script>
+        <script src="js/form.js"></script>
+    
+        <!-- 
+        <script type="text/javascript">
+          var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+          document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+        </script>
+        <script type="text/javascript">
+          try {
+            var pageTracker = _gat._getTracker("UA-54344943-1");
+            pageTracker._trackPageview();
+          } catch(err) {}
+        </script>
+        -->
+    </body>
+</html>
