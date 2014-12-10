@@ -11,6 +11,8 @@ Stats Wales [Life Expectancy by Local Authority and gender] (https://statswales.
 
 Stats Wales [National level population estimages] (https://statswales.wales.gov.uk/Catalogue/Population-and-Migration/Population/Estimates/NationalLevelPopulationEstimates-by-Year-Gender-UKCountry)
 
+Stats Wales [Spending by local health board by year] (https://statswales.wales.gov.uk/Catalogue/Health-and-Social-Care/Health-Finance/NHS-Programme-Budget/NHSExpenditure-by-BudgetCategory-Year)
+
 ONS [Excess winter mortality] (http://www.ons.gov.uk/ons/publications/re-reference-tables.html?edition=tcm%3A77-326925)
 
 
