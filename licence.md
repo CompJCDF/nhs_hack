@@ -8,7 +8,9 @@ https://github.com/compjcdf/nhs_hack or to http://compj.cs.cf.ac.uk
 All reuse of this data must retain the Crown Copyright declarations below
 
 -----------------------------------------------------------------------------------------------
-Contains Ordnance Survey data © Crown copyright and database right [2014]. Ordnance Survey data
-covered by OS OpenData Licence (see pdf in repository).
+
+Contains Ordnance Survey, Stats Wales and Office of National Statistics data © Crown copyright and database right [2014]. Data used under [Open Government Licence](http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/)
+
+Ordnance Survey data covered by OS OpenData Licence.
 
 Any further sub-licences must retain this attribution.
