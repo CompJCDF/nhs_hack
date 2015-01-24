@@ -1,22 +1,25 @@
 
     [
+
         {
             "name": "Life Expectancy -- Male",
-            "attribution_short": "Wales Healthboard",
-            "attribution_long": "Wales Healthboard, http://www.wales.com",
-            "fpath": "data/processed/lolz.csv",
+            "attribution_short": "???",
+            "attribution_long": "???",
+            "fpath": "data/processed/life_expectancy/.csv",
             "mapdesc":
-                {
-                    "type": "health_boards",
-                    "field_indx": 0
-                },
+            {
+                "type": "health_boards",
+                "field_indx": 0
+            },
             "attributes":
-                [
-                    {
-                        "name": "Life Expectancy",
-                        "field_indx": 1,
-                        "type": "???"
-                    }
-                ]
-        }
+            [
+                {
+                    "name": "Life Expectancy",
+                    "field_indx": 1,
+                    "type": "???"
+                }
+            ]
+        },
+
+
     ]
