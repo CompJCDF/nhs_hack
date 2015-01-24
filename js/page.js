@@ -17,13 +17,10 @@ function bind_listeners(){
 }
 
 function toggle_controls(){
-    log("here");
     if(ui.control_panel.className.indexOf("open") == -1){
-        log("open");
         add_class(ui.control_panel, "open");
     }
     else{
-        log("close"); 
         remove_class(ui.control_panel, "open");   
     }
 }
