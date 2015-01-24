@@ -1,0 +1,50 @@
+"Health and social care > General medical services > General practitioners workforce trend by age and gender"
+""
+"","",1998,1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,"2010 (1)","2011 (2)","2012 (3)",2013
+"Under 30","",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".","."
+"Under 30","Persons",21,27,21,15,21,18,23,25,32,30,24,10,16,17,21,24
+"","Male",8,14,10,7,10,7,7,6,8,9,6,6,10,9,9,9
+"","Female",13,13,11,8,11,11,16,19,24,21,18,4,6,8,12,15
+"30-44","",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".","."
+"30-44","Persons",948,924,889,878,842,818,772,747,758,786,760,733,787,775,773,822
+"","Male",614,588,556,546,516,479,439,397,380,371,342,311,325,320,316,314
+"","Female",334,336,333,332,326,339,333,350,378,415,418,422,462,455,457,508
+"45-54","",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".","."
+"45-54","Persons",553,569,598,606,635,656,663,708,719,740,738,747,740,746,729,711
+"","Male",457,457,471,462,464,471,463,489,497,505,492,488,467,466,445,417
+"","Female",96,112,127,144,171,185,200,219,222,235,246,259,271,280,284,294
+"55-64","",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".","."
+"55-64","Persons",238,250,264,281,285,305,329,341,338,340,372,395,389,401,408,400
+"","Male",198,210,220,234,244,267,286,292,286,284,299,307,308,295,288,283
+"","Female",40,40,44,47,41,38,43,49,52,56,73,88,81,106,120,117
+"65 and over","",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".","."
+"65 and over","Persons",18,22,23,27,25,25,29,28,35,40,46,55,59,67,64,69
+"","Male",17,22,23,27,24,21,24,24,31,35,40,50,52,57,55,59
+"","Female",1,0,0,0,1,4,5,4,4,5,6,5,7,10,9,10
+"Total","",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".","."
+"Total","Persons",1778,1792,1795,1807,1808,1822,1816,1849,1882,1936,1940,1940,1991,2007,1996,2026
+"","Male",1294,1291,1280,1276,1258,1245,1219,1208,1202,1204,1179,1162,1162,1147,1113,1082
+"","Female",484,501,515,531,550,577,597,641,680,732,761,778,827,859,882,944
+
+
+
+Footnotes:
+"1","2010 total includes two GPs whose gender was not recorded."
+"2","2011 total includes one GP whose gender was not recorded."
+"3","2012 total includes one female GP whose age was not recorded"
+"Year","At 30 September except prior to 2000 and for 2009 which are at 1 October.
+
+Administrative errors have been identified relating to the 2011 and 2012 Headcount figures for Wales. These figures have been revised."
+".","The data item is not applicable."
+Metadata:
+"Title","Hlth0425: General Practice Workforce Trends by age and gender"
+"Author","HSA1, Welsh Government"
+"Notes 1","Last Update: 25 March 2014
+
+Next Update: March 2015
+
+Source: GMS Census
+Contact: stats.healthinfo@wales.gsi.gov.uk
+
+This table contains information on Practitioners (excluding GP Registrars, GP Retainers and locums). Previously this table contained information on unrestricted principles, which is a category no longer identified following the introduction of the new GP contract on 1st April 2004"
+"Keywords","GMPs"
