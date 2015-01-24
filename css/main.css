@@ -24,6 +24,14 @@ section{
     z-index:1;
 }
 
+h1{
+    float:left;
+    font-family:'Courier', 'Monospace';
+    margin:0px;
+    padding:0px;
+    color:rgb(30,30,30);
+}
+
 #map{
     position:absolute;
     top:0px;
