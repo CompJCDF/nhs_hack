@@ -67,7 +67,7 @@ function toggle_set(set_id){
             remove_class(document.getElementById("set_"+data_sets[i].id), "ticked");
         }
     }
-    set.enabled = !set.enabled;
+    new_data(data_sets[set_id-1]);
 }
 
 function toggle_controls(){
