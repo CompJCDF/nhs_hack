@@ -3,6 +3,11 @@ html, body{
     padding:0px;
 }
 
+*{
+    font-family:'Open Sans', sans-serif;
+    font-weight:300;
+}
+
 header{
     width:98%;
     height:40px;
@@ -24,8 +29,47 @@ section{
     z-index:1;
 }
 
+h1{
+    float:left;
+    margin:0px;
+    padding:0px;
+    color:rgb(30,30,30);
+    letter-spacing:-3px;
+    color:rgb(114, 191, 136);
+}
+
+#data_sets{
+    list-style-type:none;
+    margin:10px 0px;
+    padding:0px;
+}
+
+#data_sets li{
+    margin:10px 0px;
+    padding-left:35px;
+    line-height:40px;
+    background-image:url('../media/unticked.png');
+    background-size:30px 30px;
+    background-position:left center;
+    background-repeat:no-repeat;
+}
+#data_sets li.ticked{
+    background-image:url('../media/ticked.png');
+}
+
+.background{
+    padding-left:30px;
+    background-size:20px 20px;
+    background-position:left center;
+    background-repeat:no-repeat;
+}
+
+.background.data{
+    background-image:url('../media/data.png');
+}
+
 #map{
-    position:absolute;
+    position: absolute;
     top:0px;
     left:0px;
     width:100%;
@@ -50,8 +94,39 @@ section{
     width:0px;
     height:100%;
     background:rgba(0,0,0,0.7);
+    background:rgb(200,200,200);
     z-index:2;
+    display:none;
 }
 #control_panel.open{
     width:200px;
+    padding:0px 5px;
+    display:block;
 }
+#control_panel h2:first-child{
+    margin-top:50px;
+}
+#control_panel *{
+}
+
+/*
+Map styling default
+*/
+
+.area{ 
+    fill: #fff;
+    stroke: none;
+}
+
+.boundary {
+    fill: none;
+    stroke: #777;
+}
+
+.selected {
+    fill: #ccc;
+    stroke: #777;
+    stroke-dasharray: 2,2;
+    stroke-linejoin: round;
+}
+

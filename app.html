@@ -4,19 +4,33 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
         <meta name="author" content="CompJCDF">
         <meta charset="utf-8">
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400' rel='stylesheet' type='text/css'>
         <link href="css/main.css" type="text/css" rel="stylesheet" />
         </head>
     <body>
         
         <header>
+            <h1 id="title">MediDash</h1>
             <div id="controls_opener"></div>    
         </header> 
         <section>
             <div id="map"></div>
-            <div id="control_panel"></div>
+            <div id="control_panel">
+                <h2>Data</h2>
+                <ul id="data_sets"></ul>
+                <!--
+                <h2>Language</h2>
+                <ul id="language_options">
+                    <li id="language_welsh">Cymraeg</li>
+                    <li id="language_english">English</li>
+                </ul>
+                -->
+            </div>
         </section>
 
-        <script src="js/vendor/d3.min.js"></script>
-        <script src="js/app/page.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.1.0/topojson.min.js"></script>
+        <script src="js/app/app.js"></script>
+        <script src="js/app/map.js"></script>
     </body>
 </html>
