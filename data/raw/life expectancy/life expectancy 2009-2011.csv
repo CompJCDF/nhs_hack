@@ -1,0 +1,47 @@
+"Health and social care > Life expectancy > Life expectancy by local authority and gender"
+""
+
+Filters:
+Year: 2009-11
+
+"","Males","Females"
+"Blaenau Gwent",76,79.9
+"Bridgend",76.9,81.3
+"Caerphilly",77.4,81.7
+"Cardiff",78.2,82.4
+"Carmarthenshire",78.3,82.3
+"Ceredigion",79.8,83.5
+"Conwy",78.2,82.4
+"Denbighshire",78.1,80.9
+"Flintshire",78.9,82.4
+"Gwynedd",78.3,83.3
+"Isle of Anglesey",78,82.3
+"Merthyr Tydfil",76.4,80.8
+"Monmouthshire",80.5,83.9
+"Neath Port Talbot",76.6,81
+"Newport",77.7,82.2
+"Pembrokeshire",78.8,82.7
+"Powys",79.6,83.5
+"Rhondda, Cynon, Taff",75.8,80.8
+"Swansea",77.1,82.4
+"The Vale of Glamorgan",79.4,83.4
+"Torfaen",77.7,82.3
+"Wales",77.95,82.16
+"Wrexham",78.1,81.6
+
+
+
+Metadata:
+"Title","Life expectancy"
+"Author","Health Statistics and Analysis Unit, Welsh Government"
+"Notes 1","Added to StatWales: 19 November 2013
+Next update: Autumn 2014 (provisional)
+
+Source: Office for National Statistics (ONS)
+
+Contact: Stats.healthinfo@wales.gsi.gov.uk
+
+The figures in this table are constructed from the estimated population and total deaths by single year / quinary age each year, based on a three year average. The expected years of life is the lifetime of a newborn person if they were subject throughout their lives to the average recorded death rate of the three year period. Such a calculation excludes future inprovements to mortality rates.
+
+Data relating to the period 2002 to 2010 were revised by ONS following revisions to mid-year population estimates in light of the 2011 Census. The revised figures are shown here."
+"Keywords","Life expectancy"
