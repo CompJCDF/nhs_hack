@@ -114,7 +114,7 @@ Map styling default
 */
 
 .area{ 
-    fill: #C0C0C0;
+    fill: #fff;
     stroke: none;
 }
 
@@ -124,7 +124,7 @@ Map styling default
 }
 
 .selected {
-    fill: #fff;
+    fill: #ccc;
     stroke: #777;
     stroke-dasharray: 2,2;
     stroke-linejoin: round;
