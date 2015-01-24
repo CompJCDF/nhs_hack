@@ -100,7 +100,7 @@
         },
         "attributes":
         [
-            {"field_indx": [1], "type": "float", "name": "Treatment Started within 62 Days (% Patients)"},
+            {"field_indx": [1], "type": "float", "name": "Treatment Started within 62 Days (% Patients)"}
         ]
     },
 
@@ -118,7 +118,7 @@
         },
         "attributes":
         [
-            {"field_indx": [1], "type": "float", "name": "Treatment Started within 31 Days (% Patients)"},
+            {"field_indx": [1], "type": "float", "name": "Treatment Started within 31 Days (% Patients)"}
         ]
     },
 
@@ -136,7 +136,7 @@
         },
         "attributes":
         [
-            {"field_indx": [1], "type": "float", "name": "Treatment Started within 31 Days (% Patients)"},
+            {"field_indx": [1], "type": "float", "name": "Treatment Started within 31 Days (% Patients)"}
         ]
     }
 
