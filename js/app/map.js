@@ -10,6 +10,9 @@ var projection, svg, path, g;
 var boundaries, units;
 var margin;
 
+var times = [];
+var data;
+
 var lad_lookup = [{"LAD12NM": "Isle of Anglesey", "LAD12CD": "W06000001"}, {"LAD12NM": "Gwynedd", "LAD12CD": "W06000002"}, {"LAD12NM": "Conwy", "LAD12CD": "W06000003"}, {"LAD12NM": "Denbighshire", "LAD12CD": "W06000004"}, {"LAD12NM": "Flintshire", "LAD12CD": "W06000005"}, {"LAD12NM": "Wrexham", "LAD12CD": "W06000006"}, {"LAD12NM": "Powys", "LAD12CD": "W06000023"}, {"LAD12NM": "Ceredigion", "LAD12CD": "W06000008"}, {"LAD12NM": "Pembrokeshire", "LAD12CD": "W06000009"}, {"LAD12NM": "Carmarthenshire", "LAD12CD": "W06000010"}, {"LAD12NM": "Swansea", "LAD12CD": "W06000011"}, {"LAD12NM": "Neath Port Talbot", "LAD12CD": "W06000012"}, {"LAD12NM": "Bridgend", "LAD12CD": "W06000013"}, {"LAD12NM": "The Vale of Glamorgan", "LAD12CD": "W06000014"}, {"LAD12NM": "Rhondda Cynon Taf", "LAD12CD": "W06000016"}, {"LAD12NM": "Merthyr Tydfil", "LAD12CD": "W06000024"}, {"LAD12NM": "Caerphilly", "LAD12CD": "W06000018"}, {"LAD12NM": "Blaenau Gwent", "LAD12CD": "W06000019"}, {"LAD12NM": "Torfaen", "LAD12CD": "W06000020"}, {"LAD12NM": "Monmouthshire", "LAD12CD": "W06000021"}, {"LAD12NM": "Newport", "LAD12CD": "W06000022"}, {"LAD12NM": "Cardiff", "LAD12CD": "W06000015"}];
 var lhb_lookup = [{"LHBCD": "W11000023", "LHBNM": "Betsi Cadwaladr University"}, {"LHBCD": "W11000024", "LHBNM": "Powys Teaching"}, {"LHBCD": "W11000025", "LHBNM": "Hywel Dda"}, {"LHBCD": "W11000026", "LHBNM": "Abertawe Bro Morgannwg University"}, {"LHBCD": "W11000029", "LHBNM": "Cardiff and Vale University"}, {"LHBCD": "W11000027", "LHBNM": "Cwm Taf"}, {"LHBCD": "W11000028", "LHBNM": "Aneurin Bevan"}];
 
@@ -47,22 +50,43 @@ function new_data(descriptor) {
 }
 
 function load_lad_data(data_file) {
-    d3.csv(data_file, function(data) {
-        max = 0;
-        min = data[0][["2010-2012"]];
-        for(var i = 0; i < data.length; i++) {
-            lad = lad_lookup_by_name(data[i].local_authority);
-            if(+data[i]["2010-2012"] > max) {
-                max = +data[i]["2010-2012"];
-            }
-            if(+data[i]["2010-2012"] < min) {
-                min = +data[i]["2010-2012"];
-            }
-            rateById.set(lad, +data[i]["2010-2012"]);
-            quantize.domain([min, max]);
+    d3.csv(data_file, function(d) {
+        var fields = Object.getOwnPropertyNames(d[0]);
+        var index = fields.indexOf("local_authority");
+        if (index > -1) {
+            fields.splice(index, 1);
         }
+        times = fields;
+        data = d;
+        log(times);
+        draw_data(times[0]);
     });
-    log(rateById);
+}
+
+function draw_data(year) {
+    max = 0;
+    min = data[0][year]; 
+    
+    for(var i = 0; i < data.length; i++) {
+        lad = lad_lookup_by_name(data[i].local_authority);
+        if(+data[i][year] > max) {
+            max = +data[i][year];
+        }
+        if(+data[i][year] < min) {
+            min = +data[i][year];
+        }
+        rateById.set(lad, +data[i][year]);
+        quantize.domain([min, max]);
+    }
+}
+
+
+function get_times() {
+     return times;
+}
+
+function set_time(year) {
+    draw_data(year);
 }
 
 function compute_size() {
