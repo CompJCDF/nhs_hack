@@ -1,4 +1,5 @@
-[    
+[
+
     {
         "name": "Life Expectancy -- Male",
         "attribution_url": "http://attrib",
@@ -56,10 +57,10 @@
         },
         "attributes":
         [
-            {"field_indx": [1], "type": "float", "name": "# less than 4 hours",}
-            {"field_indx": [2], "type": "float", "name": "# less than 8 hours",}
-            {"field_indx": [3], "type": "float", "name": "# less than 12 hours",}
-            {"field_indx": [4], "type": "float", "name": "# more than 12 hours",}
+            {"field_indx": [1], "type": "float", "name": "# less than 4 hours"},
+            {"field_indx": [2], "type": "float", "name": "# less than 8 hours"},
+            {"field_indx": [3], "type": "float", "name": "# less than 12 hours"},
+            {"field_indx": [4], "type": "float", "name": "# more than 12 hours"}
         ]
     },
 
@@ -77,10 +78,10 @@
         },
         "attributes":
         [
-            {"field_indx": [1], "type": "float", "name": "% less than 4 hours",}
-            {"field_indx": [2], "type": "float", "name": "% less than 8 hours",}
-            {"field_indx": [3], "type": "float", "name": "% less than 12 hours",}
-            {"field_indx": [4], "type": "float", "name": "% more than 12 hours",}
+            {"field_indx": [1], "type": "float", "name": "% less than 4 hours"},
+            {"field_indx": [2], "type": "float", "name": "% less than 8 hours"},
+            {"field_indx": [3], "type": "float", "name": "% less than 12 hours"},
+            {"field_indx": [4], "type": "float", "name": "% more than 12 hours"}
         ]
     }
 
