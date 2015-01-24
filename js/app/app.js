@@ -4,7 +4,8 @@ var ui = {
     data_sets: null,
     timeline: null,
     timeline_slider: null,
-    map: null
+    map: null,
+    variants: null
 };
 
 var net = {
@@ -39,6 +40,7 @@ function init_ui(){
     ui.timeline = document.getElementById("timeline");
     ui.timeline_slider = timeline.getElementsByTagName("div")[0];
     ui.map = document.getElementById("map");
+    ui.variants = document.getElementById("variants");
     if(! /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
         add_class(ui.control_panel, "open");
     }
@@ -61,6 +63,7 @@ function load_metadata(){
             e+='<span class="name" onclick="load_set('+data_sets[i].id+');">'+data_sets[i].name+"</span>";
             e+='<span class="source">'+data_sets[i].attribution_desc+"</span>";
             e+='<span class="org"><a href="'+data_sets[i].attribution_url+'" target="_blank">'+data_sets[i].attribution_org+"</a></span>";
+            e+='<span class="type background '+data_sets[i].data_type+'">'+data_sets[i].data_type+'</span>';
 
             ui.data_sets.innerHTML += e+"</lI>";
         }
@@ -79,10 +82,14 @@ function load_set(set_id){
             remove_class(document.getElementById("set_"+data_sets[i].id), "ticked");
         }
     }
-    if(set.attributes[0].field_indx.length > 1){
+    if(set.data_type == "timeseries"){
         show_timeline();       
+        hide_variants();
     }   
-    else{hide_timeline();}
+    else if(set.data_type == "multivariate"){
+        hide_timeline();
+        show_variants();
+    }
     new_data(set);
 }
 
@@ -137,6 +144,26 @@ function calculate_time(event){
 
 function hide_timeline(){
     remove_class(ui.timeline, "shown");
+}
+
+function show_variants(){
+    if(ui.variants.className.indexOf("shown") == -1){
+        add_class(ui.variants, "shown");
+        var variants = get_fields();
+        var s = "";
+        for(var i = 0; i < variants.length; i++){
+            s+='<option value="'+variants[i]+'">'+variants[i]+'</option>';
+        }                
+        ui.variants.innerHTML = s;
+        ui.variants.onclick = function(){
+            var val = ui.variants.value;
+            set_field(val); 
+        }; 
+    }
+}
+
+function hide_variants(){
+    remove_class(ui.variants, "shown");
 }
 
 function toggle_controls(){

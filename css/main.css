@@ -73,20 +73,32 @@ h1{
     color:rgb(50,50,50);
     display:block;
 }
+#data_sets li .type{
+    margin-top:5px;
+    font-size:13px;
+    color:rgb(50,50,50);
+    display:block;
+}
 #data_sets li .org{
     font-size:11px;
     display:block;
 }
 
 .background{
-    padding-left:30px;
-    background-size:20px 20px;
+    padding-left:23px;
+    background-size:auto 100%;
     background-position:left center;
     background-repeat:no-repeat;
 }
 
 .background.data{
     background-image:url('../media/data.png');
+}
+.background.multivariate{
+    background-image:url('../media/multivariate.png');
+}
+.background.timeseries{
+    background-image:url('../media/clock.png');
 }
 
 #map{
@@ -128,6 +140,18 @@ h1{
     position:absolute;
     top:-25px;
     left:100%;
+}
+
+#variants{
+    display:none;
+    width:300px;
+    position:absolute;
+    bottom:60px;
+    left:1%;
+    z-index:2;
+}
+#variants.shown{
+    display:block;
 }
 
 #controls_opener{
