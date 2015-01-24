@@ -1,7 +1,7 @@
 
     [
         {
-            "name": "WHB Life Expectancy",
+            "name": "Life Expectancy -- Male",
             "attribution_short": "Wales Healthboard",
             "attribution_long": "Wales Healthboard, http://www.wales.com",
             "fpath": "data/processed/lolz.csv",
