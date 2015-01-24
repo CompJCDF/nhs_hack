@@ -1,0 +1,41 @@
+"Health and social care > General medical services > General practitioners workforce headcounts and Whole Time Equivalents by local health board, gender and year"
+""
+
+Filters:
+Measure: Headcount
+
+"","","01 October 2009","","","30 September 2006","","","30 September 2007","","","30 September 2008","","","30 September 2010 (1)","","","30 September 2011","","","30 September 2012","30 September 2013"
+"","","Persons",".","Persons","Persons",".","Persons","Persons",".","Persons","Persons",".","Persons","Persons",".","Persons","Persons",".","Persons",".","."
+"","","Female","Male",".","Female","Male",".","Female","Male",".","Female","Male",".","Female","Male",".","Female","Male",".",".","."
+"Wales","",778,1162,1940,680,1202,1882,732,1204,1936,761,1179,1940,827,1162,1991,859,1147,2007,1996,2026
+"Wales","Betsi Cadwaladr ULHB",159,279,438,141,292,433,141,291,432,152,286,438,172,283,455,172,271,443,449,444
+"","Powys Teaching LHB",33,64,97,30,68,98,30,71,101,33,67,100,37,61,98,36,63,99,102,102
+"","Hywel Dda LHB",99,152,251,84,155,239,92,157,249,94,155,249,105,148,253,106,148,254,257,255
+"","ABM ULHB",131,201,332,116,203,319,120,201,321,124,203,327,139,201,340,147,196,343,331,342
+"","Cwm Taf LHB",53,107,160,40,111,151,52,117,169,56,111,167,58,110,168,67,109,176,174,177
+"","Aneurin Bevan LHB",167,201,368,146,215,361,166,210,376,171,201,372,179,202,382,184,198,383,374,386
+"","Cardiff & Vale ULHB",136,158,294,123,158,281,131,157,288,131,156,287,137,157,295,147,162,309,309,320
+
+
+
+Footnotes:
+"1","Whole-time equivalent (Wte) total includes 4 records where the gender was not recorded"
+"Area","The 7 Local Health Boards took over from the 22 former Local Health Boards on the 1 October 2009. Although it has been possible to show some data for years prior to this by Local Health Board it has not been possible to do so for all years.
+
+
+"
+"Measure","WTE calculations are based on the number of sessions a GP works during the week, up to a maximum of nine sessions. "
+"Year","All data at 30 September except 2009 which is at 1 October.
+
+Administrative errors have been identified relating to the 2011 and 2012 WTE and Headcount figures for Wales; these have been revised. "
+".","The data item is not applicable."
+Metadata:
+"Title","Hlth0422"
+"Author","Health Statistics and Analysis Unit, Welsh Government"
+"Notes 1","Last update: 25 March 2014
+
+Next update: March 2015
+
+Source: GMS Census
+Contact: stats.healthinfo@wales.gsi.gov.uk"
+"Keywords","GMPs"
