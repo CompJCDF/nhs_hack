@@ -3,6 +3,11 @@ html, body{
     padding:0px;
 }
 
+*{
+    font-family:'Open Sans', sans-serif;
+    font-weight:300;
+}
+
 header{
     width:98%;
     height:40px;
@@ -26,10 +31,11 @@ section{
 
 h1{
     float:left;
-    font-family:'Courier', 'Monospace';
     margin:0px;
     padding:0px;
     color:rgb(30,30,30);
+    letter-spacing:-3px;
+    color:rgb(114, 191, 136);
 }
 
 #map{
@@ -59,7 +65,16 @@ h1{
     height:100%;
     background:rgba(0,0,0,0.7);
     z-index:2;
+    display:none;
 }
 #control_panel.open{
     width:200px;
+    padding:0px 5px;
+    display:block;
+}
+#control_panel h2:first-child{
+    margin-top:50px;
+}
+#control_panel *{
+    color:white;
 }

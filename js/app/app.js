@@ -1,7 +1,24 @@
 var ui = {
     controls_opener: null,
     control_panel: null
-}
+};
+
+var net = {
+    get : function(url, callback){
+        log("getting "+url);
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', url, true); 
+        xhr.onreadystatechange=function(){
+            if(xhr.readyState==4 && xhr.status==200){
+                return callback(JSON.parse(xhr.responseText.replace(/\bNaN\b/g, "null")));
+            }
+            if(xhr.readyState==4 && xhr.status!=200){
+                return callback({error:true});
+            }
+        }; 
+        xhr.send();   
+    }
+};
 
 function log(text){
     console.log(text);
@@ -16,12 +33,22 @@ function bind_listeners(){
     ui.controls_opener.onclick = toggle_controls;
 }
 
+function load_metadata(){
+    net.get("data/descriptors.json", function(data){
+        
+    });   
+}
+
 function toggle_controls(){
-    if(ui.control_panel.className.indexOf("open") == -1){
-        add_class(ui.control_panel, "open");
+    toggle_class(ui.control_panel, "open");
+}
+
+function toggle_class(el, name){
+    if(el.className.indexOf(name) == -1){
+        add_class(el, name);
     }
     else{
-        remove_class(ui.control_panel, "open");   
+        remove_class(el, name);
     }
 }
 
