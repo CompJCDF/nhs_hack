@@ -55,8 +55,6 @@ function init(width, height) {
         .attr("height", height)
         .style("fill", "#fff")
         .on('click', deselect);
-
-    load_data("json/topo/lhb.json", "lhb")
 }
 
 // create a HTML table to display any properties about the selected item
@@ -147,5 +145,6 @@ function load_data(filename, u) {
 
 // when the window is resized, redraw the map
 window.addEventListener('resize', redraw);
+load_data("json/topo/lhb.json", "lhb")
 
 
