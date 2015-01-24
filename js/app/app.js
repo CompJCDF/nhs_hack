@@ -24,6 +24,7 @@ var net = {
 };
 
 var data_sets = [];
+var times = [];
 
 function log(text){
     console.log(text);
@@ -54,17 +55,16 @@ function load_metadata(){
 
         for(var i = 0; i < data_sets.length; i++){
             var e = "<li id='set_"+data_sets[i].id+"' >";
-            e+='<span class="name" onclick="toggle_set('+data_sets[i].id+');">'+data_sets[i].name+"</span>";
+            e+='<span class="name" onclick="load_set('+data_sets[i].id+');">'+data_sets[i].name+"</span>";
             e+='<span class="source">'+data_sets[i].attribution_desc+"</span>";
             e+='<span class="source"><a href="'+data_sets[i].attribution_url+'" target="_blank">'+data_sets[i].attribution_org+"</a></span>";
 
             ui.data_sets.innerHTML += e+"</lI>";
         }
-        bind_listeners();
     });  
 }
 
-function toggle_set(set_id){
+function load_set(set_id){
     var set = null;
     for(var i = 0; i < data_sets.length; i++){
         if(data_sets[i].id == set_id){
@@ -85,23 +85,47 @@ function toggle_set(set_id){
 
 function show_timeline(){
     if(ui.timeline.className.indexOf("shown") == -1){
+        times  = get_times();
         add_class(ui.timeline, "shown"); 
-        var element = ui.timeline;
+        ui.timeline.onclick = function(event){
+            ui.timeline_slider.style.left = event.pageX-25+"px";
+            calculate_time(event);
+        };
         var flag = -1;
-        element.addEventListener("mousedown", function(){
+        ui.timeline.addEventListener("mousedown", function(){
             flag = 0;
         }, false);
         document.addEventListener("mousemove", function(event){
             if(flag == 0){
-                var rect = element.getBoundingClientRect();
+                var rect = ui.timeline.getBoundingClientRect();
                 if(event.pageX > rect.left-25 && event.pageX < rect.right-25){
                     ui.timeline_slider.style.left = event.pageX-25+"px"; 
+                    calculate_time(event);
                 }
             }
         }, false);
         document.addEventListener("mouseup", function(){
             flag = -1;
         }, false);
+    }
+}
+
+function calculate_time(event){
+    var time = 0;
+    var rect = ui.timeline.getBoundingClientRect();
+    var length = rect.right - rect.left;
+    var interval_size = length / times.length;
+    var thing = 0;
+    for(var i = 0; i < times.length; i++){
+        if(event.pageX > i* interval_size){
+            thing = i;       
+        }
+    }
+    var new_time = times[thing];
+    if(new_time != time){
+        time = new_time;
+        ui.timeline_slider.innerHTML = time;                   
+        set_time(time);
     }
 }
 
