@@ -1,7 +1,9 @@
 var ui = {
     controls_opener: null,
     control_panel: null,
-    data_sets: null
+    data_sets: null,
+    timeline: null,
+    timeline_slider: null
 };
 
 var net = {
@@ -31,6 +33,8 @@ function init_ui(){
     ui.controls_opener = document.getElementById("controls_opener");
     ui.control_panel = document.getElementById("control_panel");
     ui.data_sets = document.getElementById("data_sets");
+    ui.timeline = document.getElementById("timeline");
+    ui.timeline_slider = timeline.getElementsByTagName("div")[0];
     if(! /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
         add_class(ui.control_panel, "open");
     }
@@ -49,8 +53,10 @@ function load_metadata(){
 
 
         for(var i = 0; i < data_sets.length; i++){
-            var e = "<li id='set_"+data_sets[i].id+"' onclick='toggle_set("+data_sets[i].id+");'>"+data_sets[i].name+"</li>";
-            ui.data_sets.innerHTML += e;
+            var e = "<li id='set_"+data_sets[i].id+"' >";
+            e+='<span class="name" onclick="toggle_set('+data_sets[i].id+');">'+data_sets[i].name+"</span>";
+            e+='<span class="source">'+data_sets[i].attribution_long+"</span>";
+            ui.data_sets.innerHTML += e+"</lI>";
         }
         bind_listeners();
     });  
@@ -61,13 +67,44 @@ function toggle_set(set_id){
     for(var i = 0; i < data_sets.length; i++){
         if(data_sets[i].id == set_id){
             set=data_sets[i];
+            if(document.getElementById("set_"+set.id).className.indexOf("ticked")>-1){return;}
             add_class(document.getElementById("set_"+set.id), "ticked");
         }
         else{
             remove_class(document.getElementById("set_"+data_sets[i].id), "ticked");
         }
     }
-    new_data(data_sets[set_id-1]);
+    if(set.attributes[0].field_indx.length > 1){
+        show_timeline();       
+    }   
+    else{hide_timeline();}
+    new_data(set);
+}
+
+function show_timeline(){
+    if(ui.timeline.className.indexOf("shown") == -1){
+        add_class(ui.timeline, "shown"); 
+        var element = ui.timeline;
+        var flag = -1;
+        element.addEventListener("mousedown", function(){
+            flag = 0;
+        }, false);
+        document.addEventListener("mousemove", function(event){
+            if(flag == 0){
+                var rect = element.getBoundingClientRect();
+                if(event.pageX > rect.left-25 && event.pageX < rect.right-25){
+                    ui.timeline_slider.style.left = event.pageX-25+"px"; 
+                }
+            }
+        }, false);
+        document.addEventListener("mouseup", function(){
+            flag = -1;
+        }, false);
+    }
+}
+
+function hide_timeline(){
+    remove_class(ui.timeline, "shown");
 }
 
 function toggle_controls(){
