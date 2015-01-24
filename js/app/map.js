@@ -10,6 +10,22 @@ var projection, svg, path, g;
 var boundaries, units;
 var margin;
 
+function new_data(descriptor) {
+    fpath = descriptor.fpath;
+    type = descriptor.mapdesc.type;
+    console.log(fpath);
+    console.log(type);
+    if(type === "local_authority") {
+        load_boundaries("json/topo/lad.json", "lad");
+    } else if(type === "local_health_board") {
+        load_boundaries("json/topo/lhb.json", "lhb");
+    }
+}
+
+function load_data(data_file) {
+
+}
+
 function compute_size() {
     margin = parseInt(d3.select("header").style("height"));
     width = parseInt(d3.select("#map").style("width"));
@@ -129,7 +145,7 @@ function redraw() {
 }
 
 // loads data from the given file and redraws the map
-function load_data(filename, u) {
+function load_boundaries(filename, u) {
     // clear any selection
     deselect();
 
@@ -145,6 +161,6 @@ function load_data(filename, u) {
 
 // when the window is resized, redraw the map
 window.addEventListener('resize', redraw);
-load_data("json/topo/lhb.json", "lhb")
+load_boundaries("json/topo/lhb.json", "lhb")
 
 
