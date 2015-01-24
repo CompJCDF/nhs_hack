@@ -56,7 +56,7 @@ function load_metadata(){
             ui.data_sets.innerHTML += e;
         }
         bind_listeners();
-    });   
+    });  
 }
 
 function toggle_set(set_id){

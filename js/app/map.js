@@ -13,7 +13,7 @@ var margin;
 function compute_size() {
     margin = parseInt(d3.select("header").style("height"));
     width = parseInt(d3.select("#map").style("width"));
-    height = parseInt(d3.select("#map").style("height")) - margin;
+    height = parseInt(d3.select("#map").style("height"));
 }
 
 compute_size();
@@ -45,7 +45,7 @@ function init(width, height) {
         .attr("height", height);
 
     // graphics go here
-    g = svg.append("g");
+    g = svg.append("g").attr("x", 0);
 
     // add a white rectangle as background to enable us to deselect a map selection
     g.append("rect")
@@ -53,7 +53,7 @@ function init(width, height) {
         .attr("y", 0)
         .attr("width", width)
         .attr("height", height)
-        .style("fill", "#fff")
+        .style("fill", "#72BBBF")
         .on('click', deselect);
 }
 
