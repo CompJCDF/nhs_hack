@@ -25,6 +25,7 @@ var net = {
 
 var data_sets = [];
 var times = [];
+var time = 0;
 
 function log(text){
     console.log(text);
@@ -86,10 +87,14 @@ function load_set(set_id){
 function show_timeline(){
     if(ui.timeline.className.indexOf("shown") == -1){
         times  = get_times();
+        time = 0;
         add_class(ui.timeline, "shown"); 
         ui.timeline.onclick = function(event){
-            ui.timeline_slider.style.left = event.pageX-25+"px";
-            calculate_time(event);
+            var rect = ui.timeline.getBoundingClientRect();
+            if(event.pageX > rect.left-25 && event.pageX < rect.right-25){
+                ui.timeline_slider.style.left = event.pageX-25+"px"; 
+                calculate_time(event);
+            }
         };
         var flag = -1;
         ui.timeline.addEventListener("mousedown", function(){
@@ -111,7 +116,6 @@ function show_timeline(){
 }
 
 function calculate_time(event){
-    var time = 0;
     var rect = ui.timeline.getBoundingClientRect();
     var length = rect.right - rect.left;
     var interval_size = length / times.length;
