@@ -21,5 +21,24 @@
             ]
         },
 
-
+        {
+            "name": "Life Expectancy -- Male",
+            "attribution_short": "attr short ???",
+            "attribution_long": "attr long ???",
+            "fpath": "data/derived/life_expectancy/Life_expectancy_Male_1991-2012.csv",
+            "mapdesc":
+            {
+                "type": "health_boards",
+                "field_indx": 0
+            },
+            "attributes":
+            [
+                {
+                    "name": "Male Life Expectancy 1991-1993",
+                    "field_indx": [1],
+                    "type": "float"
+                }
+            ]
+        }
+        
     ]
