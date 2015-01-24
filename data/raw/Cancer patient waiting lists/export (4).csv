@@ -1,0 +1,39 @@
+"Health and social care > NHS hospital waiting times > Cancer waiting times > Quarterly > Patients newly diagnosed not via the urgent suspected cancer route starting treatment by tumour site"
+""
+
+Filters:
+LHBProvider: Wales
+Quarter: Quarter ending Sep 2014
+
+"","","Total starting treatment within 31 days","Total starting treatment","% Starting treatment within 31 days"
+"All sites","",2391,2446,97.75143091
+"All sites","Head and neck",73,76,96.05263158
+"","Upper Gastrointestinal",229,230,99.56521739
+"","Lower Gastrointestinal",345,352,98.01136364
+"","Lung",295,299,98.66220736
+"","Sarcoma",16,16,100
+"","Skin",248,250,99.2
+"","Brain/CNS",34,34,100
+"","Breast",384,398,96.48241206
+"","Gynaecological",137,139,98.56115108
+"","Urological",331,353,93.76770538
+"","Haematological",175,175,100
+"","Acute Leukaemia",27,27,100
+"","Children's cancer",11,11,100
+"","Other",86,86,100
+
+
+
+Footnotes:
+"Cancer Site","Data are collected for 13 cancer tumour sites and an &#39;other&#39; category. Results were published only for the sites judged to have data of sufficient quality, with more sites added as quality improved.
+
+It should be noted that for many trusts the number of tumour sites reported against has increased each quarter and therefore it is not advisable to make comparisons between quarters.
+
+For some cancer tumour sites the total number of patients starting treatment within the quarter is small. Care should be taken when interpreting percentages based on small numbers of patients."
+Metadata:
+"Title","NewLHBsNonUrgent"
+"Author","Health Statistics and Analysis"
+"Notes 1","The patients shown here are those treated via the non urgent route. The national target for these patients is: 
+
+Patients referred by their GP with urgent suspected cancer and subsequently diagnosed as such by a cancer specialist will start definitive treatment within 31 days of receipt of referral."
+"Keywords","cancer, waiting times, health"
