@@ -42,7 +42,7 @@ function init_ui(){
     ui.map = document.getElementById("map");
     ui.variants = document.getElementById("variants");
     if(! /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-        add_class(ui.control_panel, "open");
+        toggle_controls(); 
     }
 }
 
@@ -95,7 +95,12 @@ function load_set(set_id){
 
 function show_timeline(){
     if(ui.timeline.className.indexOf("shown") == -1){
-        times  = get_times();
+        times = get_times();
+        ui.timeline_slider.style.left = "100%";
+        setTimeout(function(){
+            // Give time for times to load
+            ui.timeline_slider.innerHTML = times[times.length-1];
+        },100);
         time = 0;
         add_class(ui.timeline, "shown"); 
         ui.timeline.onclick = function(event){
@@ -168,6 +173,7 @@ function hide_variants(){
 
 function toggle_controls(){
     toggle_class(ui.control_panel, "open");
+    toggle_class(ui.controls_opener, "open");
 }
 
 function toggle_class(el, name){

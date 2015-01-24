@@ -146,7 +146,7 @@ h1{
     display:none;
     width:300px;
     position:absolute;
-    bottom:60px;
+    bottom:100px;
     left:1%;
     z-index:2;
 }
@@ -163,6 +163,9 @@ h1{
     background-repeat:no-repeat;
     z-index:2000;
     cursor:pointer;
+}
+#controls_opener.open{
+    background-image:url('../media/forward.png');
 }
 
 #control_panel{
