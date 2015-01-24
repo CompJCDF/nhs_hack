@@ -124,19 +124,19 @@
 
 
     {
-        "name": "Cancer Treatment Pathways -- Non-Urgent",
+        "name": "Abortion Rates",
         "attribution_url": "http://abortion",
         "attribution_desc": "abortion stats stuff.",
         "attribution_org": "Department of Babies",
-        "fpath": "data/derived/cancer_patients/not_urgent__pcnt__treatment_started_within_31days__2014nov.csv",
+        "fpath": "data/derived/abortion/abortion_rate_per_1000_2011.csv",
         "mapdesc":
         {
-            "type": "health_board",
+            "type": "local_authority",
             "field_indx": 0
         },
         "attributes":
         [
-            {"field_indx": [1], "type": "float", "name": "Treatment Started within 31 Days (% Patients)"}
+            {"field_indx": [2], "type": "float", "name": "% per Resident Women 15-44"}
         ]
     }
 
