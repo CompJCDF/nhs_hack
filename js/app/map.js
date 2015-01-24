@@ -61,8 +61,6 @@ function load_lhb_data(data_file) {
     }
     times = fields;
     data = d;
-    log(times);
-    log(data);
     draw_lhb_data(times[0]);
 });   
 }
@@ -76,7 +74,6 @@ function load_lad_data(data_file) {
         }
         times = fields;
         data = d;
-        log(times);
         draw_data(times[0]);
     });
 }
@@ -87,7 +84,6 @@ function draw_lhb_data(field) {
     
     for(var i = 0; i < data.length; i++) {
         lhb = lhb_lookup_by_name(data[i].health_board);
-        log(lhb);
         if(+data[i][field] > max) {
             max = +data[i][field];
         }
@@ -124,7 +120,6 @@ function get_times() {
 }
 
 function set_time(year) {
-    log(year);
     draw_data(year);
 }
 
@@ -220,9 +215,6 @@ function draw(boundaries) {
         .datum(topojson.mesh(boundaries, boundaries.objects[units], function(a, b){ return a !== b }))
         .attr('d', path)
         .attr('class', 'boundary');
-
-    log(quantize.range());
-    log(quantize.domain());
 
     var legend = svg.selectAll("g.legend")
         .data(quantize.range())
