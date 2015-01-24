@@ -55,7 +55,9 @@ function load_metadata(){
         for(var i = 0; i < data_sets.length; i++){
             var e = "<li id='set_"+data_sets[i].id+"' >";
             e+='<span class="name" onclick="toggle_set('+data_sets[i].id+');">'+data_sets[i].name+"</span>";
-            e+='<span class="source">'+data_sets[i].attribution_long+"</span>";
+            e+='<span class="source">'+data_sets[i].attribution_desc+"</span>";
+            e+='<span class="source"><a href="'+data_sets[i].attribution_url+'" target="_blank">'+data_sets[i].attribution_org+"</a></span>";
+
             ui.data_sets.innerHTML += e+"</lI>";
         }
         bind_listeners();
