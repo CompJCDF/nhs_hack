@@ -80,6 +80,7 @@ function draw_data(year) {
         rateById.set(lad, +data[i][year]);
         quantize.domain([min, max]);
     }
+    redraw();
 }
 
 
@@ -88,6 +89,7 @@ function get_times() {
 }
 
 function set_time(year) {
+    log(year);
     draw_data(year);
 }
 
