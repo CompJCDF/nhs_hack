@@ -1,0 +1,71 @@
+"Health and social care > NHS performance > Ambulance services > Ambulance calls and emergency responses, by area and category of call"
+""
+
+Filters:
+Date: November 2014
+
+"","","","","Category A calls (1)","Category A calls resulting in an emergency response arriving at the scene","Category A calls resulting in emergency response arriving at the scene within 8 minutes","Category A calls - % of emergency responses at scene within 8 minutes","Category C calls (2)"
+"WALES","","","",14061,13648,6964,51.0257913247,22030
+"WALES","NORTH WALES REGION","BETSI CADWALADR ULHB","",3239,3188,1874,58.78293601,5687
+"","","BETSI CADWALADR ULHB","Isle of Anglesey",305,300,167,55.6666666666,527
+"","","","Gwynedd",553,548,311,56.7518248175,1025
+"","","","Conwy",635,623,432,69.3418940609,1149
+"","","","Denbighshire",506,500,321,64.2,860
+"","","","Flintshire",638,633,271,42.8120063191,1097
+"","","","Wrexham",602,584,372,63.6986301369,1029
+"","CENTRAL & WEST WALES REGION","","",4451,4319,2333,54.0171335957,7314
+"","CENTRAL & WEST WALES REGION","POWYS TEACHING LHB","Powys",526,518,269,51.9305019305,951
+"","","HYWEL DDA LHB","",1675,1628,873,53.624078624,2731
+"","","HYWEL DDA LHB","Ceredigion",301,295,149,50.5084745762,510
+"","","","Pembrokeshire",571,552,322,58.3333333333,964
+"","","","Carmarthenshire",803,781,402,51.4724711907,1257
+"","","ABERTAWE BRO MORGANNWG ULHB","",2250,2173,1191,54.8090197883,3632
+"","","ABERTAWE BRO MORGANNWG ULHB","Swansea",1058,1022,570,55.7729941291,1807
+"","","","Neath Port Talbot",633,614,331,53.9087947882,979
+"","","","Bridgend",559,537,290,54.0037243947,846
+"","SOUTH EAST WALES REGION","","",6371,6141,2757,44.8949682462,9029
+"","SOUTH EAST WALES REGION","CARDIFF & VALE ULHB","",2354,2258,1035,45.8370239149,3367
+"","","CARDIFF & VALE ULHB","Vale of Glamorgan",600,580,247,42.5862068965,912
+"","","","Cardiff",1754,1678,788,46.9606674612,2455
+"","","CWM TAF LHB","",1379,1334,534,40.0299850074,1934
+"","","CWM TAF LHB","Rhondda Cynon Taf",1100,1066,398,37.3358348968,1557
+"","","","Merthyr Tydfil",279,268,136,50.7462686567,377
+"","","ANEURIN BEVAN LHB","",2638,2549,1188,46.6065123577,3728
+"","","ANEURIN BEVAN LHB","Caerphilly",849,825,354,42.909090909,1090
+"","","","Blaenau Gwent",330,322,146,45.3416149068,489
+"","","","Torfaen",406,391,174,44.5012787723,650
+"","","","Monmouthshire",354,333,154,46.2462462462,544
+"","","","Newport",699,678,360,53.0973451327,955
+
+
+
+Footnotes:
+"1","Immediately life-threatening calls - now include the most serious of the former Category B calls as well as calls from healthcare professionals to order an ambulance for patients on an urgent basis for admission to hospital (formerly urgent journeys)"
+"2","Urgent & planned calls - now include the majority of the former Category B calls as well as calls from healthcare professionals to order an ambulance for patients on an urgent basis for admission to hospital (formerly urgent journeys)"
+"Area","Unitary Authority, Local Health Board, ambulance region, Wales."
+Metadata:
+"Title","Hlth1305: Ambulance Services - Number of emergency ambulance calls and responses, by UA, LHB, ambulance region and Wales"
+"Author","HSA, Welsh Government"
+"Notes 1","Last update: 30 December 2014
+Was added to StatsWales: 30 December 2014
+Next update: 28 January 2015
+Will be added to StatsWales: 28 January 2015
+
+Since April 2014, Local Health Boards have been responsible for providing emergency ambulance services (999 calls) for their local residents; the Welsh Ambulance Services NHS Trust (WAST) is
+commissioned to deliver emergency ambulance services on their behalf.
+
+In March 2011, the Welsh Government published National Ambulance Performance Standards that are more focussed on improved clinical outcomes for patients. Only the most serious calls, classed as Category A (immediately life-threatening), will be guaranteed an emergency blue light response. All other calls will receive an appropriate response, either face-to-face or telephone assessment, based on clinical need. To implement this, there were changes to the ambulance services in Wales from 5 December 2011.
+
+Summary of changes:
+To comply with the National Ambulance Performance Standards, the following changes to the ambulance service in Wales were introduced:
+- Category B (serious but not immediately life-threatening calls) has been removed; 
+- immediately life-threatening calls (where there is an imminent threat to life) will continue to be identified as Category A calls but will now include the most serious of the former Category B calls; 
+- urgent & planned calls (serious but not life threatening and/or neither serious nor life threatening) will be identified as Category C (urgent and planned) calls, but will now also include the majority of the former Category B calls; and
+- calls to the ambulance service from health care professionals (HCP) to order an ambulance for patients on an urgent basis for admission to hospital (previously called &#39;GP urgent patient journeys&#39;) are now included in the calls data. These calls will be prioritised and classified as Category A or C in the same way as emergency 999 calls, although those classified as Category C will have additional time bands/standards.
+
+As a result of these changes, users should note the following:
+- data prior to December 2011 will not be directly comparable with data for this and future months; 
+- the total number of emergency calls will increase by around 4,000 for December 2011 onwards;
+- the number of Category A and Category C calls will increase for December 2011 onwards; and
+- variation in performance against the targets and / or calls in December 2011 is partially due to these changes. "
+"Keywords","Ambulance"

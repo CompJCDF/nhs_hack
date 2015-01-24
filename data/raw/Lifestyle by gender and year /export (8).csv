@@ -1,0 +1,64 @@
+"Health and social care > Welsh Health Survey > Lifestyles by gender and year"
+""
+
+Filters:
+Measure: Percent
+
+"","","Smoker (1)","Non-smoking adults regularly exposed to passive smoke indoors (2)","Consumption of alcohol: above guidelines (3)","Consumption of alcohol: binge (4)","Consumption of fruit and vegetables: meets guidelines (5)","Exercise or physical activity done: active on 5 or more days a week (6)","Overweight or obese (7)","Obese (8)"
+"Men aged 16 +","",".",".",".",".",".",".",".","."
+"Men aged 16 +","2003/04",27.342637693,".",".",".",".",36.111285026,58.855940705,17.248664251
+"","2004/05",29.348379874,".",".",".",".",36.298146164,59.65649165,18.076420648
+"","2005/06",26.633873054,".",".",".",".",38.074600577,60.629719384,19.227515528
+"",2007,25.148466124,".",".",".",".",36.078246535,62.206383508,20.276701705
+"",2008,24.764257358,22.752613078,52.237542274,35.339121482,34.667069696,38.153599172,61.828695837,20.66039246
+"",2009,25.672414454,21.051173948,51.821880998,34.340079627,34.044960666,35.754749777,62.20349334,21.325157441
+"",2010,24.635732644,20.201075941,51.276179331,34.010308882,33.311314504,36.77651155,62.523309168,22.06156304
+"",2011,24.14574443,19.732067884,49.824248583,33.114465882,32.219423644,36.029807304,61.812173639,22.075061631
+"",2012,24.538805855,18.299542634,48.105112382,31.44447019,31.964533875,35.876176337,64.019891461,23.250167867
+"",2013,22.553004486,16.603022084,48.156487463,32.228770479,31.0766711,36.540333742,62.596708112,21.671721065
+"Women aged 16 +","",".",".",".",".",".",".",".","."
+"Women aged 16 +","2003/04",25.561460538,".",".",".",".",21.573503979,48.869916725,18.12616592
+"","2004/05",25.971908087,".",".",".",".",22.980231895,49.836826731,18.107804761
+"","2005/06",24.339289659,".",".",".",".",24.905861407,51.066795316,19.712392958
+"",2007,22.878621931,".",".",".",".",23.377538402,51.261118976,20.718701492
+"",2008,22.39580667,23.740341936,37.824398549,21.960728558,37.387759728,22.037961821,52.944168839,20.860570054
+"",2009,22.187014126,22.477080795,37.859151254,21.050147902,36.514692357,23.034218498,52.285448328,21.193835501
+"",2010,21.659154386,22.575526437,37.223501091,20.930864345,36.267242184,23.631561579,52.056587349,21.334120036
+"",2011,21.158503802,20.917167418,37.533073071,21.820598866,33.715124114,22.718236221,52.952966839,22.07834069
+"",2012,20.825634771,20.247361779,36.308744143,21.269559781,34.278320234,22.761748265,53.025817585,22.755151478
+"",2013,19.880467764,18.324700361,35.548479441,20.215701005,34.013780034,22.717801417,53.613151649,23.051881027
+"All aged 16 +","",".",".",".",".",".",".",".","."
+"All aged 16 +","2003/04",26.415007415,".",".",".",".",28.529112981,53.71146682,17.700724493
+"","2004/05",27.590776856,".",".",".",".",29.356318463,54.587618831,18.092621005
+"","2005/06",25.439717601,".",".",".",".",31.217005712,55.703472121,19.477295417
+"",2007,23.970797323,".",".",".",".",29.478437628,56.646983901,20.501205501
+"",2008,23.537945834,23.26449771,44.800071041,28.435602415,36.078875514,29.78636808,57.315845619,20.762071649
+"",2009,23.872106265,21.797084198,44.631440091,27.496112117,35.322886915,29.167111724,57.174965663,21.258576174
+"",2010,23.096246692,21.433599062,44.038142925,27.273550656,34.841437568,29.978284657,57.236411965,21.694120736
+"",2011,22.603857595,20.348202021,43.494748018,27.298542287,32.991860519,29.149139056,57.325854669,22.076722153
+"",2012,22.632509033,19.310753451,42.070553771,26.239385711,33.152803117,29.141462,58.507047011,23.001947928
+"",2013,21.180366509,17.492822751,41.700057407,26.077002279,32.581043702,29.443300735,58.088172151,22.364375567
+
+
+
+Footnotes:
+"1","Adults who reported smoking either daily or occasionally."
+"2","Refers to exposure to smoke indoors. Question changes from 2008 mean results are not comparable with figures from previous years."
+"3","Drank more than 4 units (men) or 3 units (women) on heaviest drinking day in the past week. Based on all adults (drinkers and non-drinkers).Question changes from 2008 mean results are not comparable with figures from previous years."
+"4","Drank more than 8 units (men) or 6 units (women) on heaviest drinking day in the past week. Based on all adults (drinkers and non-drinkers). Question changes from 2008 mean results are not comparable with figures from previous years."
+"5","Ate at least 5 portions of fruit and vegetables the previous day. Question changes from 2008 mean results are not comparable with figures from previous years."
+"6","Did at least 30 minutes of at least moderate intensity physical activity on 5 or more days the previous week. (Prior to 2011 this was the target activity level for meeting physical activity guidelines, but guidelines were revised during 2011 to allow more flexibility in how target activity levels are met)."
+"7","Reported Body Mass Index of 25&#43;.  The BMI is calculated as weight (kg) divided by squared height (m2)."
+"8","Reported Body Mass Index of 30&#43;. The BMI is calculated as weight (kg) divided by squared height (m2)."
+".","The data item is not applicable."
+Metadata:
+"Title","Welsh Health Survey 2013 - lifestyles"
+"Author","Health Statistics and Analysis Unit, Welsh Government"
+"Notes 1","Added to StatsWales: 21 May 2014
+Next update: May 2015 (provisional)
+
+Source:Welsh Health Survey
+
+Contact: Stats.healthinfo@wales.gsi.gov.uk
+"
+"Keywords","Welsh Health Survey"
