@@ -1,0 +1,62 @@
+"Health and social care > Social services > Children's services > Children in need > Health of children in need by measure and year"
+""
+
+Filters:
+Child Status: All children in need
+<br />Average = Numerator divided by denominator',Style[0])" onmouseout="htm()" class='dimensionAlert'>Component: Percentage / average
+Gender: All children in need
+Local Authority: Wales
+
+"",2010,2011,2012,2013
+"Percentage of children with up-to-date immunisations (1)",74,76,82,78
+"Percentage of children with up-to-date dental checks (for children aged 5 and over) (2)",70,74,72,67
+"Percentage of children with substance misuse problems (3)",4,5,5,5
+"Percentage of children with mental health problems (4)",5,6,6,7
+"Percentage of children with up-to-date child health surveillance checks (for children aged 0 to 5) (5)",71,76,77,73
+"Percentage of children with autistic spectrum disorder (6)",7,9,9,12
+
+
+
+Footnotes:
+"1","Children with immunisations up to date are recorded as having received all the immunisations that a child of their age should have received by the census date. Excludes unborn children. The data is incomplete for some local authorities."
+"2","Children with up to date dental checks are defined as those who have had their teeth checked by a dentist during the twelve months to 31st March.This data was requested specifically for children aged 5 and over, though the item was not compulsory and data is incomplete for some local authorities."
+"3","Recent guidance published by the National Institute for Clinical Excellence (NICE) offers a definition of substance misuse as 'intoxication by - or regular excessive consumption of and/or dependence on - psychoactive substances, leading to social, psychological, physical or legal problems. It includes problematic use of both legal and illegal drugs (including alcohol when used in combination with other substances). Excludes unborn children. The data is incomplete for some local authorities."
+"4","Includes mental health problems diagnosed by a medical practitioner and children receiving Child and Adolescent Mental Health Services (CAMHS) or on a waiting list for services. Includes depression; self harming; and eating disorders. Includes children who report experiencing mental health problems but who do not have a diagnosis. Autistic spectrum disorders, learning disabilities and substance misuse problems are not regarded as mental health problems in their own right. Excludes unborn children. The data is incomplete for some local authorities."
+"5","Local Authorities were asked to identify whether the child's health surveillance child health promotion checks were up to date at the census date. This data was requested specifically for children aged 0 to 5, though the item was not compulsory and data is incomplete for some local authorities."
+"6","Autistic spectrum disorders (ASD) are a range of related developmental disorders that begin in childhood and persist throughout adulthood. Excludes unborn children."
+"Child Status","Children in the census have been divided into three status categories for reporting, as follows:
+- Children who are looked after, who may also be on the child protection register
+- Children who are on the child protection register, but not looked after
+- Other children in need, who neither looked after, nor on the child protection register (includes unborn children).
+"
+"Component","Percentage = Numerator divided by denominator multiplied by 100
+
+Average = Numerator divided by denominator"
+Metadata:
+"Title","CARE0107: Children in need at 31 March by child status, gender and local authority"
+"Author","Knowledge and Analytical Services, Welsh Government"
+"Notes 1","Last Update: 27 Feb 2014
+Next Update: Feb 2015 (provisional)
+
+Source: Children in Need Census, Welsh Government
+
+Contact: stats.pss@wales.gsi.gov.uk
+
+Unborn children are included in this dataset unless stated otherwise.
+
+The following measures have been taken to minimise the risk of unwanted disclosure of personal data:
+All figures have been rounded to the nearest five. Where there are between one and five children in any group, the actual number has been suppressed, and replaced by the symbol *.
+
+The Census collected individual records on all children in need, including those looked after by a local authority,  who had an open case with a local authority on the 31 March that had been open for the three months from 1 January to 31 March. 
+
+The purpose of the Census is to collect data that measures the characteristics and attributes of children in need who receive social services from their local authorities, including children looked after by local authorities. The census has focussed particularly on data about the reason that children receive help from social services departments; parental capacity; and on the health and education outcomes for each child. 
+
+The statistics are published as experimental statistics and do not display the National Statistics logo as they are still being evaluated and remain subject to further testing in terms of their volatility and ability to meet customer needs. The results should be treated with caution as this is only the second year of the Children in Need Census data collection and some local authorities were unable to report complete information.
+
+The CIN census is a requirement for all 22 local authorities. An individual return is required for each child in need. Data should be derived from the Integrated Children&#39;s System (ICS). According to Welsh Government Circular WAGC 23/2008, ICS implementations should support the CIN census and funding has been provided through the Performance Management Development Fund.
+For this collection, local authorities were required to submit data for children whose cases were open on the census date of 31 March and had been open for the previous 3 months, i.e. the case was open on or before 1 January and remained open at 31 March of the same year. This requirement means that the total number of children in need included in the Census is less than the total number of children in need receiving services.
+The CIN census covers all children receiving support which is financed from children&#39;s social services budgets, including those supported in their families or independently, and children on the child protection register. Children in need will have had an initial assessment. Children receiving respite care should be included in the count of children in need.
+The Equality Act 2010 has replaced much of the Disability Discrimination Acts (DDA) but the guidance is still applicable and covers categories of disability with examples. 
+http://www.equalityhumanrights.com/uploaded_files/guidance_on_matters_to_be_taken_into_account_in_determining_questions_relating_to_the_definition_of_disability.pdf
+"
+"Keywords","Children, Children in need"
