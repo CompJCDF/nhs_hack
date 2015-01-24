@@ -10,7 +10,7 @@ var net = {
         xhr.open('GET', url, true); 
         xhr.onreadystatechange=function(){
             if(xhr.readyState==4 && xhr.status==200){
-                return callback(JSON.parse(xhr.responseText.replace(/\bNaN\b/g, "null")));
+                return callback(JSON.parse(xhr.responseText));
             }
             if(xhr.readyState==4 && xhr.status!=200){
                 return callback({error:true});
@@ -27,6 +27,9 @@ function log(text){
 function init_ui(){
     ui.controls_opener = document.getElementById("controls_opener");
     ui.control_panel = document.getElementById("control_panel");
+    if(! /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+        add_class(ui.control_panel, "open");
+    }
 }
 
 function bind_listeners(){
@@ -35,7 +38,7 @@ function bind_listeners(){
 
 function load_metadata(){
     net.get("data/descriptors.json", function(data){
-        
+        log(data); 
     });   
 }
 
