@@ -181,6 +181,27 @@ function draw(boundaries) {
         .datum(topojson.mesh(boundaries, boundaries.objects[units], function(a, b){ return a !== b }))
         .attr('d', path)
         .attr('class', 'boundary');
+    /*
+      var legend = svg.selectAll("g.legend")
+        .data(rateById.values())
+        .enter().append("g")
+        .attr("class", "legend");
+
+      var ls_w = 20, ls_h = 20;
+
+      legend.append("rect")
+      .attr("x", 20)
+      .attr("y", function(d, i){ return height - (i*ls_h) - 2*ls_h;})
+      .attr("width", ls_w)
+      .attr("height", ls_h)
+      .attr("class", function(d, i) { return quantize(rateById.values()[i]); })
+      .style("opacity", 0.8);
+
+      legend.append("text")
+      .attr("x", 50)
+      .attr("y", function(d, i){ return height - (i*ls_h) - ls_h - 4;});
+      //.text(function(d, i){ return legend_labels[i]; });
+    */
 }
 
 // called to redraw the map - removes map completely and starts from scratch
