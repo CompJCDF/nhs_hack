@@ -12,6 +12,7 @@ var margin;
 
 var times = [];
 var data;
+var name;
 
 var lad_lookup = [{"LAD12NM": "Isle of Anglesey", "LAD12CD": "W06000001"}, {"LAD12NM": "Gwynedd", "LAD12CD": "W06000002"}, {"LAD12NM": "Conwy", "LAD12CD": "W06000003"}, {"LAD12NM": "Denbighshire", "LAD12CD": "W06000004"}, {"LAD12NM": "Flintshire", "LAD12CD": "W06000005"}, {"LAD12NM": "Wrexham", "LAD12CD": "W06000006"}, {"LAD12NM": "Powys", "LAD12CD": "W06000023"}, {"LAD12NM": "Ceredigion", "LAD12CD": "W06000008"}, {"LAD12NM": "Pembrokeshire", "LAD12CD": "W06000009"}, {"LAD12NM": "Carmarthenshire", "LAD12CD": "W06000010"}, {"LAD12NM": "Swansea", "LAD12CD": "W06000011"}, {"LAD12NM": "Neath Port Talbot", "LAD12CD": "W06000012"}, {"LAD12NM": "Bridgend", "LAD12CD": "W06000013"}, {"LAD12NM": "The Vale of Glamorgan", "LAD12CD": "W06000014"}, {"LAD12NM": "Rhondda Cynon Taf", "LAD12CD": "W06000016"}, {"LAD12NM": "Merthyr Tydfil", "LAD12CD": "W06000024"}, {"LAD12NM": "Caerphilly", "LAD12CD": "W06000018"}, {"LAD12NM": "Blaenau Gwent", "LAD12CD": "W06000019"}, {"LAD12NM": "Torfaen", "LAD12CD": "W06000020"}, {"LAD12NM": "Monmouthshire", "LAD12CD": "W06000021"}, {"LAD12NM": "Newport", "LAD12CD": "W06000022"}, {"LAD12NM": "Cardiff", "LAD12CD": "W06000015"}];
 var lhb_lookup = [{"LHBCD": "W11000023", "LHBNM": "Betsi Cadwaladr University"}, {"LHBCD": "W11000024", "LHBNM": "Powys Teaching"}, {"LHBCD": "W11000025", "LHBNM": "Hywel Dda"}, {"LHBCD": "W11000026", "LHBNM": "Abertawe Bro Morgannwg University"}, {"LHBCD": "W11000029", "LHBNM": "Cardiff and Vale University"}, {"LHBCD": "W11000027", "LHBNM": "Cwm Taf"}, {"LHBCD": "W11000028", "LHBNM": "Aneurin Bevan"}];
@@ -40,6 +41,7 @@ var quantize = d3.scale.quantize()
 function new_data(descriptor) {
     fpath = descriptor.fpath;
     type = descriptor.mapdesc.type;
+    name = descriptor.name;
     if(type === "local_authority") {
         load_boundaries("json/topo/lad.json", "lad");
         load_lad_data(fpath);
@@ -181,27 +183,34 @@ function draw(boundaries) {
         .datum(topojson.mesh(boundaries, boundaries.objects[units], function(a, b){ return a !== b }))
         .attr('d', path)
         .attr('class', 'boundary');
-    /*
-      var legend = svg.selectAll("g.legend")
-        .data(rateById.values())
+
+    log(quantize.range());
+    log(quantize.domain());
+
+    var legend = svg.selectAll("g.legend")
+        .data(quantize.range())
         .enter().append("g")
         .attr("class", "legend");
 
-      var ls_w = 20, ls_h = 20;
+    var ls_w = 20, ls_h = 20;
 
-      legend.append("rect")
-      .attr("x", 20)
-      .attr("y", function(d, i){ return height - (i*ls_h) - 2*ls_h;})
-      .attr("width", ls_w)
-      .attr("height", ls_h)
-      .attr("class", function(d, i) { return quantize(rateById.values()[i]); })
-      .style("opacity", 0.8);
+    legend.append("rect")
+        .attr("x", 100)
+        .attr("y", function(d, i){ return height/2 - (i*ls_h) - 2*ls_h;})
+        .attr("width", ls_w)
+        .attr("height", ls_h)
+        .attr("class", function(d, i) { return quantize.range()[i]; })
+        .style("opacity", 0.8);
 
-      legend.append("text")
-      .attr("x", 50)
-      .attr("y", function(d, i){ return height - (i*ls_h) - ls_h - 4;});
-      //.text(function(d, i){ return legend_labels[i]; });
-    */
+    legend.append("text")
+        .attr("x", 140)
+        .attr("y", function(d, i){ return height/2 - (i*ls_h) - ls_h - 4;})
+        .text(function(d, i){ return quantize.invertExtent(quantize.range()[i])[0].toFixed(2) + "-" + quantize.invertExtent(quantize.range()[i])[1].toFixed(2); });
+
+    legend.append("text")
+        .attr("x", 120)
+        .attr("y", height/2)
+        .text(name);
 }
 
 // called to redraw the map - removes map completely and starts from scratch
