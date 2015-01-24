@@ -84,7 +84,7 @@
             {"field_indx": [3], "type": "float", "name": "% less than 12 hours"},
             {"field_indx": [4], "type": "float", "name": "% more than 12 hours"}
         ]
-    }
+    },
 
 
     {
@@ -102,7 +102,7 @@
         [
             {"field_indx": [1], "type": "float", "name": "Treatment Started within 62 Days (% Patients)"},
         ]
-    }
+    },
 
 
     {
@@ -110,6 +110,24 @@
         "attribution_url": "http://cancertreatment",
         "attribution_desc": "oncology stuff.",
         "attribution_org": "Office of Oncology",
+        "fpath": "data/derived/cancer_patients/not_urgent__pcnt__treatment_started_within_31days__2014nov.csv",
+        "mapdesc":
+        {
+            "type": "health_board",
+            "field_indx": 0
+        },
+        "attributes":
+        [
+            {"field_indx": [1], "type": "float", "name": "Treatment Started within 31 Days (% Patients)"},
+        ]
+    },
+
+
+    {
+        "name": "Cancer Treatment Pathways -- Non-Urgent",
+        "attribution_url": "http://abortion",
+        "attribution_desc": "abortion stats stuff.",
+        "attribution_org": "Department of Babies",
         "fpath": "data/derived/cancer_patients/not_urgent__pcnt__treatment_started_within_31days__2014nov.csv",
         "mapdesc":
         {
