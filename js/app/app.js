@@ -43,13 +43,10 @@ function bind_listeners(){
 function load_metadata(){
     net.get("data/descriptors.json", function(data){
         log(data); 
-        data_sets = [
-            {name:'Set 1', id:1, enabled: false},
-            {name:'Set 2', id:2, enabled: false},
-            {name:'Set 3', id:3, enabled: false},
-            {name:'Set 4', id:4, enabled: false},
-            {name:'Set 5', id:5, enabled: false}
-        ];
+        if(data.error == true){return;}
+        data_sets = data;
+        for(var i = 0; i < data_sets.length; i++){data_sets[i].id = i+1;}
+
 
         for(var i = 0; i < data_sets.length; i++){
             var e = "<li id='set_"+data_sets[i].id+"' onclick='toggle_set("+data_sets[i].id+");'>"+data_sets[i].name+"</li>";
