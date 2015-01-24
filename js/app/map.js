@@ -27,8 +27,8 @@ function lad_lookup_by_name(name) {
 
 function lhb_lookup_by_name(name) {
     for(var i = 0; i < lhb_lookup.length; i++) {
-        if(lhb_lookup.LHBNM === name){
-            return lhb_lookup.LHBCD;
+        if(lhb_lookup[i].LHBNM === name){
+            return lhb_lookup[i].LHBCD;
         }
     }   
 }
@@ -45,10 +45,24 @@ function new_data(descriptor) {
     if(type === "local_authority") {
         load_boundaries("json/topo/lad.json", "lad");
         load_lad_data(fpath);
-    } else if(type === "local_health_board") {
+    } else if(type === "health_board") {
         load_boundaries("json/topo/lhb.json", "lhb");
+        load_lhb_data(fpath);
     }
     
+}
+
+function load_lhb_data(data_file) {
+ d3.csv(data_file, function(d) {
+    var fields = Object.getOwnPropertyNames(d[0]);
+    var index = fields.indexOf("health_board");
+    if (index > -1) {
+        fields.splice(index, 1);
+    }
+    times = fields;
+    data = d;
+    draw_lhb_data(times[0]);
+});   
 }
 
 function load_lad_data(data_file) {
@@ -60,9 +74,26 @@ function load_lad_data(data_file) {
         }
         times = fields;
         data = d;
-        log(times);
         draw_data(times[0]);
     });
+}
+
+function draw_lhb_data(field) {
+    max = 0;
+    min = data[0][field]; 
+    
+    for(var i = 0; i < data.length; i++) {
+        lhb = lhb_lookup_by_name(data[i].health_board);
+        if(+data[i][field] > max) {
+            max = +data[i][field];
+        }
+        if(+data[i][field] < min) {
+            min = +data[i][field];
+        }
+        rateById.set(lhb, +data[i][field]);
+        quantize.domain([min, max]);
+    }
+    redraw();
 }
 
 function draw_data(year) {
@@ -89,7 +120,6 @@ function get_times() {
 }
 
 function set_time(year) {
-    log(year);
     draw_data(year);
 }
 
@@ -185,9 +215,6 @@ function draw(boundaries) {
         .datum(topojson.mesh(boundaries, boundaries.objects[units], function(a, b){ return a !== b }))
         .attr('d', path)
         .attr('class', 'boundary');
-
-    log(quantize.range());
-    log(quantize.domain());
 
     var legend = svg.selectAll("g.legend")
         .data(quantize.range())
