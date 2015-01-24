@@ -60,7 +60,7 @@ function load_metadata(){
             var e = "<li id='set_"+data_sets[i].id+"' >";
             e+='<span class="name" onclick="load_set('+data_sets[i].id+');">'+data_sets[i].name+"</span>";
             e+='<span class="source">'+data_sets[i].attribution_desc+"</span>";
-            e+='<span class="source"><a href="'+data_sets[i].attribution_url+'" target="_blank">'+data_sets[i].attribution_org+"</a></span>";
+            e+='<span class="org"><a href="'+data_sets[i].attribution_url+'" target="_blank">'+data_sets[i].attribution_org+"</a></span>";
 
             ui.data_sets.innerHTML += e+"</lI>";
         }
