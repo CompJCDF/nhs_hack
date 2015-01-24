@@ -8,10 +8,12 @@ var height;
 // variables for map drawing
 var projection, svg, path, g;
 var boundaries, units;
+var margin;
 
 function compute_size() {
+    margin = parseInt(d3.select("header").style("height"));
     width = parseInt(d3.select("#map").style("width"));
-    height = parseInt(d3.select("#map").style("height"));
+    height = parseInt(d3.select("#map").style("height")) - margin;
 }
 
 compute_size();
