@@ -47,7 +47,6 @@ h1{
 #data_sets li{
     margin:10px 0px;
     padding-left:35px;
-    line-height:40px;
     background-image:url('../media/unticked.png');
     background-size:30px 30px;
     background-position:left center;
@@ -55,6 +54,17 @@ h1{
 }
 #data_sets li.ticked{
     background-image:url('../media/ticked.png');
+}
+#data_sets li .name{
+    font-size:13px;
+    display:block;
+    cursor:pointer;
+}
+#data_sets li .source{
+    font-size:11px;
+    font-style:italic;
+    color:rgb(50,50,50);
+    display:block;
 }
 
 .background{
@@ -77,6 +87,30 @@ h1{
     z-index:1;
 }
 
+#timeline{
+    display:none;
+    width:98%;
+    height:1px;
+    border-top:1px dashed black;
+    bottom:60px;
+    left:1%;
+    position:absolute; 
+    z-index:2; 
+}
+#timeline.shown{
+    display:block;
+}   
+#timeline div{
+    border-radius:50%;
+    box-shadow:0px 0px 10px gray;
+    width:50px;
+    height:50px;
+    background:red;
+    position:absolute;
+    top:-25px;
+    left:50%;
+}
+
 #controls_opener{
     float:right;
     width:40px;
@@ -95,7 +129,7 @@ h1{
     height:100%;
     background:rgba(0,0,0,0.7);
     background:rgb(200,200,200);
-    z-index:2;
+    z-index:3;
     display:none;
 }
 #control_panel.open{
@@ -114,7 +148,6 @@ Map styling default
 */
 
 .area{ 
-    fill: #fff;
     stroke: none;
 }
 
@@ -129,4 +162,14 @@ Map styling default
     stroke-dasharray: 2,2;
     stroke-linejoin: round;
 }
+
+.q0-9 { fill:rgb(247,251,255); }
+.q1-9 { fill:rgb(222,235,247); }
+.q2-9 { fill:rgb(198,219,239); }
+.q3-9 { fill:rgb(158,202,225); }
+.q4-9 { fill:rgb(107,174,214); }
+.q5-9 { fill:rgb(66,146,198); }
+.q6-9 { fill:rgb(33,113,181); }
+.q7-9 { fill:rgb(8,81,156); }
+.q8-9 { fill:rgb(8,48,107); }
 

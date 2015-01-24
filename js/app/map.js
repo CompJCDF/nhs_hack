@@ -10,20 +10,59 @@ var projection, svg, path, g;
 var boundaries, units;
 var margin;
 
-function new_data(descriptor) {
-    fpath = descriptor.fpath;
-    type = descriptor.mapdesc.type;
-    console.log(fpath);
-    console.log(type);
-    if(type === "local_authority") {
-        load_boundaries("json/topo/lad.json", "lad");
-    } else if(type === "local_health_board") {
-        load_boundaries("json/topo/lhb.json", "lhb");
+var lad_lookup = [{"LAD12NM": "Isle of Anglesey", "LAD12CD": "W06000001"}, {"LAD12NM": "Gwynedd", "LAD12CD": "W06000002"}, {"LAD12NM": "Conwy", "LAD12CD": "W06000003"}, {"LAD12NM": "Denbighshire", "LAD12CD": "W06000004"}, {"LAD12NM": "Flintshire", "LAD12CD": "W06000005"}, {"LAD12NM": "Wrexham", "LAD12CD": "W06000006"}, {"LAD12NM": "Powys", "LAD12CD": "W06000023"}, {"LAD12NM": "Ceredigion", "LAD12CD": "W06000008"}, {"LAD12NM": "Pembrokeshire", "LAD12CD": "W06000009"}, {"LAD12NM": "Carmarthenshire", "LAD12CD": "W06000010"}, {"LAD12NM": "Swansea", "LAD12CD": "W06000011"}, {"LAD12NM": "Neath Port Talbot", "LAD12CD": "W06000012"}, {"LAD12NM": "Bridgend", "LAD12CD": "W06000013"}, {"LAD12NM": "The Vale of Glamorgan", "LAD12CD": "W06000014"}, {"LAD12NM": "Rhondda Cynon Taf", "LAD12CD": "W06000016"}, {"LAD12NM": "Merthyr Tydfil", "LAD12CD": "W06000024"}, {"LAD12NM": "Caerphilly", "LAD12CD": "W06000018"}, {"LAD12NM": "Blaenau Gwent", "LAD12CD": "W06000019"}, {"LAD12NM": "Torfaen", "LAD12CD": "W06000020"}, {"LAD12NM": "Monmouthshire", "LAD12CD": "W06000021"}, {"LAD12NM": "Newport", "LAD12CD": "W06000022"}, {"LAD12NM": "Cardiff", "LAD12CD": "W06000015"}];
+var lhb_lookup = [{"LHBCD": "W11000023", "LHBNM": "Betsi Cadwaladr University"}, {"LHBCD": "W11000024", "LHBNM": "Powys Teaching"}, {"LHBCD": "W11000025", "LHBNM": "Hywel Dda"}, {"LHBCD": "W11000026", "LHBNM": "Abertawe Bro Morgannwg University"}, {"LHBCD": "W11000029", "LHBNM": "Cardiff and Vale University"}, {"LHBCD": "W11000027", "LHBNM": "Cwm Taf"}, {"LHBCD": "W11000028", "LHBNM": "Aneurin Bevan"}];
+
+function lad_lookup_by_name(name) {
+    for(var i = 0; i < lad_lookup.length; i++) {
+        if(lad_lookup[i].LAD12NM === name){
+            return lad_lookup[i].LAD12CD;
+        }
     }
 }
 
-function load_data(data_file) {
+function lhb_lookup_by_name(name) {
+    for(var i = 0; i < lhb_lookup.length; i++) {
+        if(lhb_lookup.LHBNM === name){
+            return lhb_lookup.LHBCD;
+        }
+    }   
+}
 
+var rateById = d3.map();
+
+var quantize = d3.scale.quantize()
+    .range(d3.range(9).map(function(i) { return "q" + i + "-9"; }));
+
+function new_data(descriptor) {
+    fpath = descriptor.fpath;
+    type = descriptor.mapdesc.type;
+    if(type === "local_authority") {
+        load_boundaries("json/topo/lad.json", "lad");
+        load_lad_data(fpath);
+    } else if(type === "local_health_board") {
+        load_boundaries("json/topo/lhb.json", "lhb");
+    }
+    
+}
+
+function load_lad_data(data_file) {
+    d3.csv(data_file, function(data) {
+        max = 0;
+        min = data[0][["2010-2012"]];
+        for(var i = 0; i < data.length; i++) {
+            lad = lad_lookup_by_name(data[i].local_authority);
+            if(+data[i]["2010-2012"] > max) {
+                max = +data[i]["2010-2012"];
+            }
+            if(+data[i]["2010-2012"] < min) {
+                min = +data[i]["2010-2012"];
+            }
+            rateById.set(lad, +data[i]["2010-2012"]);
+            quantize.domain([min, max]);
+        }
+    });
+    log(rateById);
 }
 
 function compute_size() {
@@ -70,36 +109,22 @@ function init(width, height) {
         .attr("width", width)
         .attr("height", height)
         .style("fill", "#72BBBF")
-        .on('click', deselect);
+        //.on('click', deselect);
 }
-
-// create a HTML table to display any properties about the selected item
-function create_table(properties) {
-    var keys = Object.keys(properties);
-
-    table_string = "<table>";
-    table_string += "<th>Property</th><th>Value</th>";
-    for (var i = 0; i < keys.length; i++) {
-        table_string += "<tr><td>" + keys[i] + "</td><td>" + properties[keys[i]] + "</td></tr>";
-    }
-    table_string += "</table>";
-    return table_string;
-}
-
+/*
 // select a map area
 function select(d) {
     // get the id of the selected map area
     var id = "#" + d.id;
     // remove the selected class from any other selected areas
     d3.selectAll(".selected")
-        .attr("class", "area");
+        .attr("class", "area")
+        .attr("class", function(d) { return quantize(rateById.get(d.id)); })
     // and add it to this area
     d3.select(id)
         .attr("class", "selected area")
-    // add the area properties to the data_table section
-    d3.select("#data_table")
-        .html(create_table(d.properties));
 }
+*/
 
 // draw our map on the SVG element
 function draw(boundaries) {
@@ -122,10 +147,10 @@ function draw(boundaries) {
         .data(topojson.feature(boundaries, boundaries.objects[units]).features)
         .enter().append("path")
         .attr("class", "area")
+        .attr("class", function(d) { return quantize(rateById.get(d.id)); })
         .attr("id", function(d) {return d.id})
-        .attr("properties_table", function(d) { return create_table(d.properties)})
         .attr("d", path)
-        .on("click", function(d){ return select(d)});
+        //.on("click", function(d){ return select(d)});
 
     // add a boundary between areas
     g.append("path")
