@@ -8,7 +8,7 @@
             "fpath": "data/derived/life_expectancy/Life_expectancy_Male_1991-2012.csv",
             "mapdesc":
             {
-                "type": "health_boards",
+                "type": "local_authority",
                 "field_indx": 0
             },
             "attributes":
@@ -28,7 +28,7 @@
             "fpath": "data/derived/life_expectancy/Life_expectancy_Male_1991-2012.csv",
             "mapdesc":
             {
-                "type": "health_boards",
+                "type": "local_authority",
                 "field_indx": 0
             },
             "attributes":
