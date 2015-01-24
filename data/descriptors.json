@@ -3,9 +3,9 @@
 
         {
             "name": "Life Expectancy -- Male",
-            "attribution_short": "???",
-            "attribution_long": "???",
-            "fpath": "data/processed/life_expectancy/.csv",
+            "attribution_short": "attr short ???",
+            "attribution_long": "attr long ???",
+            "fpath": "data/derived/life_expectancy/Life_expectancy_Male_1991-2012.csv",
             "mapdesc":
             {
                 "type": "health_boards",
@@ -15,8 +15,8 @@
             [
                 {
                     "name": "Life Expectancy",
-                    "field_indx": 1,
-                    "type": "???"
+                    "field_indx": [1,20],
+                    "type": "float"
                 }
             ]
         },
