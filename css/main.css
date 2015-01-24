@@ -51,6 +51,8 @@ h1{
 
 #data_sets li{
     margin:10px 0px;
+    padding-top:10px;
+    border-top:1px dotted rgb(150,150,150);
     padding-left:35px;
     background-image:url('../media/unticked.png');
     background-size:30px 30px;
@@ -130,6 +132,7 @@ h1{
     background-size:40px 40px;
     background-repeat:no-repeat;
     z-index:2000;
+    cursor:pointer;
 }
 
 #control_panel{

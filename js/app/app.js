@@ -3,7 +3,8 @@ var ui = {
     control_panel: null,
     data_sets: null,
     timeline: null,
-    timeline_slider: null
+    timeline_slider: null,
+    map: null
 };
 
 var net = {
@@ -37,6 +38,7 @@ function init_ui(){
     ui.data_sets = document.getElementById("data_sets");
     ui.timeline = document.getElementById("timeline");
     ui.timeline_slider = timeline.getElementsByTagName("div")[0];
+    ui.map = document.getElementById("map");
     if(! /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
         add_class(ui.control_panel, "open");
     }
