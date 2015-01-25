@@ -200,7 +200,7 @@ function show_timeline(){
         setTimeout(function(){
             // Give time for times to load
             ui.timeline_slider.innerHTML = times[times.length-1];
-        },100);
+        },500);
         time = 0;
         add_class(ui.timeline, "shown"); 
         ui.timeline.onclick = function(event){

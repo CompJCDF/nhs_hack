@@ -103,19 +103,22 @@ function load_data(data_file) {
 
 function draw_data(field) {
     max = 0;
-    min = data[0][field]; 
+    min = data[0][field];
     
+
     for(var i = 0; i < data.length; i++) {
         if (area === "local_authority") {
             key = lad_lookup_by_name(data[i][area]);
         } else if (area === "health_board") {
             key = lhb_lookup_by_name(data[i][area])
         }
-        if(+data[i][field] > max) {
-            max = +data[i][field];
-        }
-        if(+data[i][field] < min) {
-            min = +data[i][field];
+        for(var j = 0; j < fields.length; j++) {
+            if(+data[i][fields[j]] > max) {
+                max = +data[i][fields[j]];
+            }
+            if(+data[i][fields[j]] < min) {
+                min = +data[i][fields[j]];
+            }           
         }
         rateById.set(key, +data[i][field]);
         quantize.domain([min, max]);

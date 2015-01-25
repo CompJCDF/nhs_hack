@@ -1,0 +1,26 @@
+name : Birth Total by Local Authority of residence of mother from 2008-2013
+
+attribution_short: ons.gov.uk
+
+attribution_long: link per year and info on stats
+
+2008:
+http://www.ons.gov.uk/ons/publications/re-reference-tables.html?edition=tcm%3A77-291564
+
+2009:
+http://www.ons.gov.uk/ons/publications/re-reference-tables.html?edition=tcm%3A77-213348
+
+2010:
+http://www.ons.gov.uk/ons/publications/re-reference-tables.html?edition=tcm%3A77-222793
+
+2011:
+http://www.ons.gov.uk/ons/publications/re-reference-tables.html?edition=tcm%3A77-272510
+
+2012:
+http://www.ons.gov.uk/ons/publications/re-reference-tables.html?edition=tcm%3A77-320857
+
+2013:
+http://www.ons.gov.uk/ons/publications/re-reference-tables.html?edition=tcm%3A77-317529
+
+
+type of area: local authorities

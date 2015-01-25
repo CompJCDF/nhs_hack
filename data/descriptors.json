@@ -3,9 +3,9 @@
 
     {
         "name": "Cancer Treatment Waiting Times (Non-Urgent)",
-        "attribution_url": "http://attrib",
+        "attribution_url": "https://statswales.wales.gov.uk/Catalogue/Health-and-Social-Care/NHS-Hospital-Waiting-Times/Cancer-Waiting-Times/Quarterly/PatientsNewlyDiagnosedNotViaTheUrgentSuspectedCancerRouteStartingTreatment-by-LocalHealthBoard-Quarter",
         "attribution_desc": "Patients on the non-urgent cancer treatment pathway that began treatment within target (31 days).",
-        "attribution_org": "Office of Oncology",
+        "attribution_org": "Stats Wales",
         "fpath": "data/derived/cancer_patients/not_urgent__pcnt__treatment_started_within_31days__2year.csv",
         "data_type": "timeseries",
         "mapdesc":
@@ -26,9 +26,9 @@
 
     {
         "name": "Life Expectancy - Male (Years)",
-        "attribution_url": "http://attrib",
-        "attribution_desc": "Life expectancy collected over blaaa.",
-        "attribution_org": "Office of Life Expectancy",
+        "attribution_url": "https://statswales.wales.gov.uk/Catalogue/Health-and-Social-Care/Life-Expectancy/LifeExpectancy-by-LocalAuthority-Gender",
+        "attribution_desc": "Life expectancy by local authority ",
+        "attribution_org": "Stats Wales",
         "fpath": "data/derived/life_expectancy/Life_expectancy_Male_1991-2012.csv",
         "data_type": "timeseries",
         "mapdesc":
@@ -48,9 +48,9 @@
 
     {
         "name": "A&E Waiting Times (#) -- Dec 2014",
-        "attribution_url": "http://ambulance",
-        "attribution_desc": "blaaaambulance.",
-        "attribution_org": "Office of Ambulances",
+        "attribution_url": "http://www.infoandstats.wales.nhs.uk/page.cfm?orgid=869&pid=62956",
+        "attribution_desc": "Accident and Emergency Report",
+        "attribution_org": "NHS Wales, information and statistics",
         "fpath": "data/derived/ambulance/ambulances_abs_2014dec.csv",
         "data_type": "multivariate",
         "mapdesc":
@@ -113,7 +113,7 @@
 
     {
         "name": "Spend per head by LHB and PHW",
-        "attribution_url": "http://attrib",
+        "attribution_url": "https://statswales.wales.gov.uk/Catalogue/Health-and-Social-Care/Health-Finance/NHS-Programme-Budget/NHSExpenditure-by-BudgetCategory-Year",
         "attribution_desc": "Local Health Board revenue expenditure",
         "attribution_org": "Stats Wales",
         "fpath": "data/derived/spending/spend_ph.csv",
