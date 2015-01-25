@@ -250,10 +250,11 @@ function show_hospital_toggle(){
         ui.hospital_toggle.onclick = function(){
             if(ui.hospital_toggle.className.indexOf("enabled") == -1){
                 add_class(ui.hospital_toggle, "enabled");
-                
+                show_hospitals(true); 
             }
             else{
                 remove_class(ui.hospital_toggle, "enabled");
+                show_hospitals(false);
             }
         }
     }
