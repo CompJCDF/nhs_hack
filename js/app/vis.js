@@ -60,13 +60,31 @@ function new_data(descriptor) {
         if(datatype !== "multivariate") {
             load_boundaries("json/topo/lad.json", "lad");    
         }
-        load_data(fpath);
     } else if(area === "health_board") {
         if(datatype !== "multivariate") {
             load_boundaries("json/topo/lhb.json", "lhb");    
         }
-        load_data(fpath);
     }
+    if(descriptor.spath !== undefined) {
+        spath = descriptor.spath;
+        load_local_data(get_local_dataset(spath));
+    } else {
+        load_data(fpath)
+    }
+}
+
+function load_local_data(dataset) {
+    d = d3.csv.parse(dataset);
+    log(d);
+    var f = Object.getOwnPropertyNames(d[0]);
+    var index = f.indexOf(area);
+    if (index > -1) {
+        f.splice(index, 1);
+    }
+    times = f;
+    fields = f;
+    data = d;
+    draw_data(times[0]);
 }
 
 function load_data(data_file) {
