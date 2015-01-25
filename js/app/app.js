@@ -105,27 +105,29 @@ function get_local_dataset(id){
 }
 
 function get_local_metadata(){
-    var stored_descriptors = localStorage.local_descriptors;
-    try{
-        stored_descriptors = JSON.parse(stored_descriptors);
-        return stored_descriptors;
-    }catch(err){return [];}
-}
+    }
 
 function load_metadata(){
     ui.data_sets.innerHTML = "";
-    var local_descriptors = get_local_metadata();    
-        
+    data_sets = [];
+
+    var local_descriptors = localStorage.local_descriptors;
+    try{
+        local_descriptors = JSON.parse(local_descriptors);
+    }catch(err){local_descriptors = [];}
+ 
     for(var i = 0; i < local_descriptors.length; i++){
         data_sets.push(local_descriptors[i]);        
     }
 
     net.get("data/descriptors.json", function(data){
-        if(data.error == false){
+        if(data.error != true){
             for(var i = 0; i < data.length; i++){
                 data_sets.push(data[i]);
             }
         }
+        log(data_sets);
+
         for(var i = 0; i < data_sets.length; i++){data_sets[i].id = i+1;}
 
         for(var i = 0; i < data_sets.length; i++){
@@ -228,6 +230,7 @@ function toggle_controls(){
 function toggle_config(){
     toggle_class(ui.config_overlay, "shown");
     ui.json_field.value = document.getElementById("template").value;
+    ui.csv_field.value = "";
 }
 
 function toggle_class(el, name){
