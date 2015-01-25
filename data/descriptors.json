@@ -242,7 +242,7 @@
     },
 
     {
-        "name": "Adults who ate more than five portions of fruit and veg",
+        "name": "Adults who ate at least five portions of fruit and veg",
         "attribution_url": "http://wales.gov.uk/statistics-and-research/welsh-health-survey/?lang=en",
         "attribution_desc": "Welsh Health Survey per centage who ate five or more portions of fruit and vegetables the previous day",
         "attribution_org": "Stats Wales",
