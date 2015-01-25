@@ -17,7 +17,7 @@ var boundaries, units;
 var fields = [];
 var data;
 
-var hospitals_shown = true;
+var hospitals_shown = false;
 
 // data descriptors
 var name;
@@ -260,6 +260,7 @@ function draw_map() {
 
 function show_hospitals(toggle) {
     hospitals_shown = toggle;
+    redraw();
 }
 
 function draw_hospitals() {
@@ -283,54 +284,24 @@ function draw_hospitals() {
 }
 
 function draw_hospitals() {
-  d3.json("data/lookup/hospitals_latlong_lookup.json", function(json) {
-  // create paths for each region using the json data
-  // and the geo path generator to draw the shapes
-  //
-  // paint region polygon elements
-  g.selectAll("path")
-      .data(Object.keys(json))
-    .enter().append("rect")
-      .attr("x", function (key) {json[key][1]})
-      .attr("y", function (key) {json[key][0]})
-      .attr("width", 10) 
-      .attr("height", 10);
-  }
-
-
-  //
-  // add text labels (region name) to regions
-  regions_labels.selectAll("text")
-    .data(json.features)
-    .enter()
-    .append("svg:text")
-    .text(function(d){
-        return d.properties.name_abbr;
-    })
-    .attr("x", function(d){
-        right = path.bounds(d)[1][0]+2.0;
-        // [​[left, bottom], [right, top]​]
-        // API reference:
-        //   https://github.com/mbostock/d3/wiki/Geo-Paths#bounds
-        //   https://github.com/mbostock/d3/wiki/Geo-Paths#path_bounds
-        // hard-code specific adjustments to some labels
-        if(d.properties.name_abbr=="P-C-W"){
-          right += 2;
-        }
-        return right;
-    })
-    .attr("y", function(d){
-        cent = path.centroid(d)[1];
-        // hard-code specific adjustments to some labels
-        if($.inArray(d.properties.name_abbr, ["H-TW-SL", "P-C-W", "A-SS-R", "C-N-E", "M-SP-B"]) != -1) {
-          cent += 8;
-        }
-        return cent;
-    })
-    .attr("text-anchor","middle")
-    .attr('font-size','6pt');
-  });
+    d3.json("data/lookup/hospitals_latlong_lookup.json", function(json) {
+        g.selectAll("path")
+             .data(Object.keys(json))
+           .enter().append("circle")
+             .attr("r", 5)
+             .style("fill", "#fff")
+             .attr("transform", function(d) {return "translate(" + projection([json[d][1], json[d][0]]) + ")";})
+            
+        g.selectAll("path")
+        .data(Object.keys(json))
+           .enter().append("text")
+            .attr("transform", function(d) {return "translate(" + projection([json[d][1], json[d][0]]) + ")";})
+            .style("fill", "#ccc")
+            .style("font-size", "0.6em")
+            .text(function(d) { return d;});
+     });
 }
+
 
 function draw_bar() {
 
