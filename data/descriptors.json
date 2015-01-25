@@ -112,7 +112,7 @@
     },
 
     {
-        "name": "Spend per head by LHB and PHW",
+        "name": "&pound; Spend per head by LHB and PHW",
         "attribution_url": "https://statswales.wales.gov.uk/Catalogue/Health-and-Social-Care/Health-Finance/NHS-Programme-Budget/NHSExpenditure-by-BudgetCategory-Year",
         "attribution_desc": "Local Health Board revenue expenditure",
         "attribution_org": "Stats Wales",
@@ -126,7 +126,7 @@
         "attributes":
         [
             {
-                "name": "£ per head",
+                "name": "&pound; per head",
                 "field_indx": [1,4],
                 "type": "float"
             }
