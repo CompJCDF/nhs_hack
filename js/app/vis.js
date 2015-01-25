@@ -17,6 +17,8 @@ var boundaries, units;
 var fields = [];
 var data;
 
+var hospitals_shown = true;
+
 // data descriptors
 var name;
 var legend_name;
@@ -256,6 +258,10 @@ function draw_map() {
 
 }
 
+function show_hospitals(toggle) {
+    hospitals_shown = toggle;
+}
+
 function draw_hospitals() {
     d3.json("data/lookup/hospitals_latlong_lookup.json", function(json) {
         g.selectAll("path")
@@ -437,8 +443,10 @@ function redraw() {
 
     init(width, height);
     if (datatype === "timeseries") {
-        draw_map();   
-        draw_hospitals(); 
+        draw_map();
+        if(hospitals_shown) {
+            draw_hospitals();     
+        }   
     }
     else if (datatype === "multivariate") {
         draw_bar()
