@@ -49,6 +49,7 @@ var quantize = d3.scale.quantize()
 
 // add new data to the visualisation
 function new_data(descriptor) {
+    d3.select("svg").remove();
     // extract the descriptors
     fpath = descriptor.fpath;
     area = descriptor.mapdesc.type;
@@ -222,8 +223,8 @@ function draw_map() {
 function draw_bar() {
 
     var margin_right = parseInt(d3.select('#control_panel').style("width"));
-    var w = width - 2 * margin_right;
-    var h = height - 80;
+    var w = width - margin_right - 20;
+    var h = height - 30;
 
 var x0 = d3.scale.ordinal()
     .rangeRoundBands([0, w], .1);
@@ -248,13 +249,6 @@ var yAxis = d3.svg.axis()
 log(width);
 log(height);
 
-var svg = d3.select("#map").append("svg")
-    .attr("width", w)
-    .attr("height", h)
-    .attr("fill", "none")
-  .append("g")
-    .attr("transform", "translate(" + margin_right + "," + margin_right + ")");
-
   var fieldNames = d3.keys(data[0]).filter(function(key) { return key !== area; });
 
   data.forEach(function(d) {
@@ -267,7 +261,7 @@ var svg = d3.select("#map").append("svg")
 
   svg.append("g")
       .attr("class", "x axis")
-      .attr("transform", "translate(0," + height + ")")
+      .attr("transform", "translate(0," + h + ")")
       .call(xAxis);
 
   svg.append("g")
@@ -276,6 +270,7 @@ var svg = d3.select("#map").append("svg")
     .append("text")
       .attr("transform", "rotate(-90)")
       .attr("y", 6)
+      .attr("x", 12)
       .attr("dy", ".71em")
       .style("text-anchor", "end")
       .text("Number of Patients");
@@ -302,14 +297,15 @@ var svg = d3.select("#map").append("svg")
       .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
 
   legend.append("rect")
-      .attr("x", w - 18)
+      .attr("x", w - 40)
+      .attr("y", function(d, i){ return h/2 - (i*48);})
       .attr("width", 18)
       .attr("height", 18)
       .style("fill", color);
 
   legend.append("text")
-      .attr("x", w - 24)
-      .attr("y", 9)
+      .attr("x", w - 58)
+      .attr("y", function(d, i){ return h/2 - (i*48);})
       .attr("dy", ".35em")
       .style("text-anchor", "end")
       .text(function(d) { return d; });
