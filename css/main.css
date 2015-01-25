@@ -118,6 +118,9 @@ h1{
 .background.data{
     background-image:url('../media/data.png');
 }
+.background.uniivariate{
+    background-image:url('../media/map.png');
+}
 .background.multivariate{
     background-image:url('../media/bar_chart.png');
 }

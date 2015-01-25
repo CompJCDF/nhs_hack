@@ -194,6 +194,10 @@ function load_set(set_id){
         hide_hospital_toggle();
         hide_timeline();
     }
+    else if(set.data_type == "univariate"){
+        show_hospital_toggle();
+        hide_timeline();
+    }
     new_data(set);
 }
 
