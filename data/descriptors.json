@@ -136,7 +136,7 @@
     {
         "name": "Satifaction of Hospital Care - Percent",
         "attribution_url": "https://statswales.wales.gov.uk/Catalogue/Health-and-Social-Care/NHS-Performance",
-        "attribution_desc": "???",
+        "attribution_desc": "Patient Satisfaction Survey Results (Hospital Visits 2013-14)",
         "attribution_org": "Stats Wales",
         "fpath": "data/derived/hospital_care/hospital_care_satisfaction.csv",
         "data_type": "multivariate",
