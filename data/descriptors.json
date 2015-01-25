@@ -87,7 +87,7 @@
                 "type": "float"
             }
         ]
-    }
+    },
 
     {
         "name": "Birth Total",
@@ -106,6 +106,28 @@
             {
                 "name": "Birth Total",
                 "field_indx": [1,6],
+                "type": "float"
+            }
+        ]
+    },
+
+    {
+        "name": "Spend per head by LHB and PHW",
+        "attribution_url": "http://attrib",
+        "attribution_desc": "Local Health Board revenue expenditure",
+        "attribution_org": "Stats Wales",
+        "fpath": "data/derived/spending/spend_ph.csv",
+        "data_type": "timeseries",
+        "mapdesc":
+        {
+            "type": "health_board",
+            "field_indx": 0
+        },
+        "attributes":
+        [
+            {
+                "name": "£ per head",
+                "field_indx": [1,4],
                 "type": "float"
             }
         ]
