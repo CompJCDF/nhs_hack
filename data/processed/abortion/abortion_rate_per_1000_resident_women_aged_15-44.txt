@@ -1,4 +1,4 @@
-name : legal abortions — rate per 1000 resident women aged 15-44
+name : legal abortions — rate per 1000 resident women aged 15-44 per year from 2009-2013
 
 attribution_short: gov.uk
 
