@@ -26,9 +26,9 @@
 
     {
         "name": "Life Expectancy - Male (Years)",
-        "attribution_url": "http://attrib",
-        "attribution_desc": "Life expectancy collected over blaaa.",
-        "attribution_org": "Office of Life Expectancy",
+        "attribution_url": "https://statswales.wales.gov.uk/Catalogue/Health-and-Social-Care/Life-Expectancy/LifeExpectancy-by-LocalAuthority-Gender",
+        "attribution_desc": "Life expectancy by local authority ",
+        "attribution_org": "Stats Wales",
         "fpath": "data/derived/life_expectancy/Life_expectancy_Male_1991-2012.csv",
         "data_type": "timeseries",
         "mapdesc":
@@ -48,9 +48,9 @@
 
     {
         "name": "A&E Waiting Times (#) -- Dec 2014",
-        "attribution_url": "http://ambulance",
-        "attribution_desc": "blaaaambulance.",
-        "attribution_org": "Office of Ambulances",
+        "attribution_url": "http://www.infoandstats.wales.nhs.uk/page.cfm?orgid=869&pid=62956",
+        "attribution_desc": "Monthly Accident and Emergency Report",
+        "attribution_org": "NHS Wales, informatino and statistics",
         "fpath": "data/derived/ambulance/ambulances_abs_2014dec.csv",
         "data_type": "multivariate",
         "mapdesc":
