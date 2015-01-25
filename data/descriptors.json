@@ -2,6 +2,29 @@
 
 
     {
+        "name": "Cancer Treatment Rate (Non-Urgent)",
+        "attribution_url": "http://attrib",
+        "attribution_desc": "Patients on the non-urgent cancer pathway that began treatment within 31 days.",
+        "attribution_org": "Office of Oncology",
+        "fpath": "data/derived/cancer_patients/not_urgent__pcnt__treatment_started_within_31days__2year.csv",
+        "data_type": "timeseries",
+        "mapdesc":
+        {
+            "type": "health_board",
+            "field_indx": 0
+        },
+        "attributes":
+        [
+            {
+                "name": "% Patients",
+                "field_indx": [1,32],
+                "type": "float"
+            }
+        ]
+    },
+
+
+    {
         "name": "Life Expectancy - Male (Years)",
         "attribution_url": "http://attrib",
         "attribution_desc": "Life expectancy collected over blaaa.",
