@@ -265,6 +265,30 @@ h1{
     background-image:url('../media/forward.png');
 }
 
+#about{
+    float:right;
+    width:40px;
+    height:40px;
+    display:inline-block;
+    background-image:url('../media/info.png');
+    background-size:40px 40px;
+    background-repeat:no-repeat;
+    z-index:2000;
+    cursor:pointer;
+}
+
+#dashboard{
+    float:right;
+    width:40px;
+    height:40px;
+    display:inline-block;
+    background-image:url('../media/dash.png');
+    background-size:40px 40px;
+    background-repeat:no-repeat;
+    z-index:2000;
+    cursor:pointer;
+}
+
 #control_panel{
     position:absolute;
     overflow-y:scroll;
@@ -286,6 +310,37 @@ h1{
     margin-top:50px;
 }
 #control_panel *{
+}
+
+
+.social{
+    width:40%;
+    float:left;
+    margin:20px;
+}
+
+.profile{
+    border-radius:50%;
+    width:150px;
+    height:150px;
+    float:left;
+    box-shadow:0px 0px 10px gray;
+}
+
+.social span{
+    float:left; 
+    margin-left:20px;
+    margin-top:70px;
+}
+
+.social span a:link{
+    text-decoration:none;
+    color:rgb(100,100,100);
+}
+
+.social span a:visited{
+    text-decoration:none;
+    color:rgb(100,100,100);
 }
 
 .hospital {
