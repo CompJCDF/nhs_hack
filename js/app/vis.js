@@ -183,7 +183,7 @@ function init(width, height) {
         .attr("y", 0)
         .attr("width", width)
         .attr("height", height)
-        .style("fill", "#72BBBF")
+        .style("fill", "#eee")
         //.on('click', deselect);
 }
 
@@ -269,39 +269,21 @@ function draw_hospitals() {
              .data(Object.keys(json))
            .enter().append("circle")
              .attr("r", 5)
-             .style("fill", "#fff")
+             .attr("class", "hospital")
+             //.style("fill", "#ff8000")
              .attr("transform", function(d) {return "translate(" + projection([json[d][1], json[d][0]]) + ")";})
             
         g.selectAll("path")
         .data(Object.keys(json))
            .enter().append("text")
             .attr("transform", function(d) {return "translate(" + projection([json[d][1], json[d][0]]) + ")";})
-            .style("fill", "#ccc")
+            .attr("class", "hospital")
+            //.style("fill", "#ccc")
             .style("font-size", "0.6em")
             .text(function(d) { return d;});
 
      });
 }
-
-function draw_hospitals() {
-    d3.json("data/lookup/hospitals_latlong_lookup.json", function(json) {
-        g.selectAll("path")
-             .data(Object.keys(json))
-           .enter().append("circle")
-             .attr("r", 5)
-             .style("fill", "#fff")
-             .attr("transform", function(d) {return "translate(" + projection([json[d][1], json[d][0]]) + ")";})
-            
-        g.selectAll("path")
-        .data(Object.keys(json))
-           .enter().append("text")
-            .attr("transform", function(d) {return "translate(" + projection([json[d][1], json[d][0]]) + ")";})
-            .style("fill", "#ccc")
-            .style("font-size", "0.6em")
-            .text(function(d) { return d;});
-     });
-}
-
 
 function draw_bar() {
 
