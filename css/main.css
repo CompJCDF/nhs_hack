@@ -155,6 +155,65 @@ h1{
     left:100%;
 }
 
+#config_overlay{
+    position:fixed;
+    background:rgba(0,0,0,0.2);
+    width:100%;
+    height:100%;
+    left:0px;
+    top:0px;
+    display:none;
+    z-index:4000;
+}
+#config_overlay.shown{
+    display:block;
+}
+#config{
+    position:relative;
+    width:80%;
+    margin:20px auto;
+    padding:10px;
+    height:450px;
+    background:white;
+    border-radius:3px;
+    box-shadow:0px 0px 10px gray;
+    border:3px solid rgb(230,230,230);
+}
+#config textarea{
+    width:45%;
+    max-width:45%;
+    height:300px;
+    max-height:300px;
+    margin:5px 1%;
+    padding:3px 1%;   
+    border:none;
+    background:rgb(50,50,50);
+    color:white;
+    font-family:'Courier', 'Monospace';
+    font-size:11px;
+}
+#config button#store_data{
+    width:46%;
+    height:40px;
+    display:inline-block;
+    margin:5px 1%;
+    padding:1%;
+    border-radius:4px;
+    border:none;
+    background:green;
+    color:white;
+}
+#config button#close_config{
+    width:20%;
+    height:40px;
+    float:right;
+    border-radius:4px;
+    color:white;
+    background: red;
+    border:none;
+    margin:5px 1%;
+}
+
 #controls_opener{
     float:right;
     width:40px;

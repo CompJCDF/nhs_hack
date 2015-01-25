@@ -24,6 +24,38 @@
                 <div></div>
             </div>
         </section>
+        <div id="config_overlay">
+            <div id="config">
+                <h2>Add new dataset</h2>
+                <textarea id="descriptor" placeholder="JSON description"></textarea>
+                <textarea id="csv_data" placeholder="CSV data"></textarea>
+                <button id="store_data">Add data</button>
+                <button id="close_config">Cancel</button>
+                <input type="hidden" value='
+{
+    "name": "",
+    "attribution_url": "",
+    "attribution_desc": "",
+    "attribution_org": "",
+    "data_type": "",
+    "mapdesc":
+    {
+        "type": "",
+        "field_indx": 0
+    },
+    "attributes":
+    [
+        {
+            "name": "",
+            "field_indx": [],
+            "type": ""
+        }
+    ]
+}' 
+                id="template" />
+    </div>
+        </div>
+
 
         <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.1.0/topojson.min.js"></script>
