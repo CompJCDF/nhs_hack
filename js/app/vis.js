@@ -14,8 +14,7 @@ var projection, path;
 var boundaries, units;
 
 // data variables
-var times = []; // time series
-var fields = []; // multi-variate data
+var fields = [];
 var data;
 
 // data descriptors
@@ -163,7 +162,7 @@ function init(width, height) {
 
 
 // draw our map on the SVG element
-function draw_map(boundaries) {
+function draw_map() {
 
     projection
         .scale(1)
@@ -220,6 +219,10 @@ function draw_map(boundaries) {
         .text(name);
 }
 
+function draw_bar() {
+    
+}
+
 // called to redraw the map - removes map completely and starts from scratch
 function redraw() {
     compute_size();
@@ -227,7 +230,13 @@ function redraw() {
     d3.select("svg").remove();
 
     init(width, height);
-    draw(boundaries);
+    if (datatype === "timeseries") {
+        draw_map();    
+    }
+    else if (datatype === "multivariate") {
+        draw_bar()
+    }
+    
 }
 
 // loads data from the given file and redraws the map
