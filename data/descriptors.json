@@ -131,5 +131,47 @@
                 "type": "float"
             }
         ]
+    },
+
+    {
+        "name": "Satifaction of Hospital Care - Percent",
+        "attribution_url": "https://statswales.wales.gov.uk/Catalogue/Health-and-Social-Care/NHS-Performance",
+        "attribution_desc": "???",
+        "attribution_org": "Stats Wales",
+        "fpath": "data/derived/hospital_care/hospital_care_satisfaction.csv",
+        "data_type": "multivariate",
+        "mapdesc":
+        {
+            "type": "health_board",
+            "field_indx": 0
+        },
+        "attributes":
+        [
+            {"field_indx": [1], "type": "float", "name": "% Very Satisfied"},
+            {"field_indx": [2], "type": "float", "name": "% Fairly Satisfied"}
+        ]
+    },
+
+    {
+        "name": "Adults who reported being a current smoker",
+        "attribution_url": "http://wales.gov.uk/statistics-and-research/welsh-health-survey/?lang=en",
+        "attribution_desc": "Welsh Health Survey per centage who curently smoke",
+        "attribution_org": "Stats Wales",
+        "fpath": "data/derived/smoking/smoking.csv",
+        "data_type": "timeseries",
+        "mapdesc":
+        {
+            "type": "health_board",
+            "field_indx": 0
+        },
+        "attributes":
+        [
+            {
+                "name": "% who smoke",
+                "field_indx": [1,9],
+                "type": "float"
+            }
+        ]
     }
+    
 ]

@@ -17,10 +17,15 @@ var boundaries, units;
 var fields = [];
 var data;
 
+var hospitals_shown = false;
+
 // data descriptors
 var name;
+var legend_name;
 var area; //health board or local authority or...
 var datatype;
+
+var hospitals = {"Llandudno General Hospital": [53.311447, -3.827714], "Powys Teaching LHB MIUs": [52.008661, -3.259053], "Cwm Taf LHB MIUs": [51.636495, -3.450172], "Morriston Hospital": [51.684662, -3.935273], "Powys Teaching LHB MIUs": [52.008661, -3.259053], "Morriston Hospital": [51.684662, -3.935273], "Cwm Taf LHB MIUs": [51.636495, -3.450172], "Llandudno General Hospital": [53.311447, -3.827714], "Betsi Cadwaladr University LHB MIUs": [53.209002, -4.15959], "Aneurin Bevan LHB MIUs": [55.865604, -3.998619], "Princess Of Wales Hospital": [51.517463, -3.571647], "Ysbyty Glan Clwyd": [53.272107, -3.495894], "Aneurin Bevan LHB MIUs": [55.865604, -3.998619], "University Hospital Of Wales": [51.507018, -3.190343], "Prince Philip Hospital": [51.691615, -4.135931], "The Royal Glamorgan Hospital": [51.546934, -3.391817], "The Royal Glamorgan Hospital": [51.546934, -3.391817], "Bronglais General Hospital": [52.416036, -4.071668], "Wrexham Maelor Hospital": [53.046918, -3.008389], "Glangwili General Hospital": [51.868218, -4.28396], "Ysbyty Gwynedd": [53.209007, -4.15982], "Hywel Dda LHB MIUs": [51.877202, -4.582024], "Ysbyty Glan Clwyd": [53.272107, -3.495894], "Prince Charles Hospital": [51.763922, -3.385956], "Royal Gwent Hospital": [51.579779, -2.994478], "Betsi Cadwaladr University LHB MIUs": [53.209002, -4.15959], "Nevill Hall Hospital": [51.825082, -3.034565], "Withybush General Hospital": [51.812668, -4.965219], "Wrexham Maelor Hospital": [53.046918, -3.008389], "University Hospital Of Wales": [51.507018, -3.190343], "Ysbyty Ystrad Fawr": [51.63363, -3.235645], "Singleton Hospital": [51.609647, -3.985408], "Prince Philip Hospital": [51.691615, -4.135931], "Nevill Hall Hospital": [51.825082, -3.034565], "Cardiff and Vale University LHB MIUs": [51.449635, -3.203941], "Cardiff and Vale University LHB MIUs": [51.449635, -3.203941], "Bronglais General Hospital": [52.416036, -4.071668], "Hywel Dda LHB MIUs": [51.877202, -4.582024], "Prince Charles Hospital": [51.763922, -3.385956], "Ysbyty Gwynedd": [53.209007, -4.15982], "Glangwili General Hospital": [51.868218, -4.28396], "Princess Of Wales Hospital": [51.517463, -3.571647], "Neath Port Talbot Hospital": [51.599336, -3.800879], "Neath Port Talbot Hospital": [51.599336, -3.800879], "Ysbyty Ystrad Fawr": [51.63363, -3.235645], "Withybush General Hospital": [51.812668, -4.965219], "Singleton Hospital": [51.609647, -3.985408], "Royal Gwent Hospital": [51.579779, -2.994478]}
 
 var lad_lookup = [{"LAD12NM": "Isle of Anglesey", "LAD12CD": "W06000001"}, {"LAD12NM": "Gwynedd", "LAD12CD": "W06000002"}, {"LAD12NM": "Conwy", "LAD12CD": "W06000003"}, {"LAD12NM": "Denbighshire", "LAD12CD": "W06000004"}, {"LAD12NM": "Flintshire", "LAD12CD": "W06000005"}, {"LAD12NM": "Wrexham", "LAD12CD": "W06000006"}, {"LAD12NM": "Powys", "LAD12CD": "W06000023"}, {"LAD12NM": "Ceredigion", "LAD12CD": "W06000008"}, {"LAD12NM": "Pembrokeshire", "LAD12CD": "W06000009"}, {"LAD12NM": "Carmarthenshire", "LAD12CD": "W06000010"}, {"LAD12NM": "Swansea", "LAD12CD": "W06000011"}, {"LAD12NM": "Neath Port Talbot", "LAD12CD": "W06000012"}, {"LAD12NM": "Bridgend", "LAD12CD": "W06000013"}, {"LAD12NM": "The Vale of Glamorgan", "LAD12CD": "W06000014"}, {"LAD12NM": "Rhondda Cynon Taf", "LAD12CD": "W06000016"}, {"LAD12NM": "Merthyr Tydfil", "LAD12CD": "W06000024"}, {"LAD12NM": "Caerphilly", "LAD12CD": "W06000018"}, {"LAD12NM": "Blaenau Gwent", "LAD12CD": "W06000019"}, {"LAD12NM": "Torfaen", "LAD12CD": "W06000020"}, {"LAD12NM": "Monmouthshire", "LAD12CD": "W06000021"}, {"LAD12NM": "Newport", "LAD12CD": "W06000022"}, {"LAD12NM": "Cardiff", "LAD12CD": "W06000015"}];
 var lhb_lookup = [{"LHBCD": "W11000023", "LHBNM": "Betsi Cadwaladr University"}, {"LHBCD": "W11000024", "LHBNM": "Powys Teaching"}, {"LHBCD": "W11000025", "LHBNM": "Hywel Dda"}, {"LHBCD": "W11000026", "LHBNM": "Abertawe Bro Morgannwg University"}, {"LHBCD": "W11000029", "LHBNM": "Cardiff and Vale University"}, {"LHBCD": "W11000027", "LHBNM": "Cwm Taf"}, {"LHBCD": "W11000028", "LHBNM": "Aneurin Bevan"}];
@@ -54,6 +59,7 @@ function new_data(descriptor) {
     area = descriptor.mapdesc.type;
     name = descriptor.name;
     datatype = descriptor.data_type;
+    legend_name = descriptor.attributes[0].name;
 
     // check what resolution of data we're dealing with
     if(area === "local_authority") {
@@ -177,7 +183,7 @@ function init(width, height) {
         .attr("y", 0)
         .attr("width", width)
         .attr("height", height)
-        .style("fill", "#72BBBF")
+        .style("fill", "#eee")
         //.on('click', deselect);
 }
 
@@ -236,14 +242,47 @@ function draw_map() {
         .style("opacity", 0.8);
 
     legend.append("text")
-        .attr("x", x_pos + 20)
+        .attr("x", x_pos + 22)
         .attr("y", function(d, i){ return height/2 - (i*ls_h) - ls_h - 4;})
         .text(function(d, i){ return quantize.invertExtent(quantize.range()[i])[0].toFixed(2) + "-" + quantize.invertExtent(quantize.range()[i])[1].toFixed(2); });
 
     legend.append("text")
         .attr("x", x_pos)
-        .attr("y", height/2)
+        .attr("y", height/4 - 40)
         .text(name);
+
+    legend.append("text")
+        .attr("x", x_pos)
+        .attr("y", height/2)
+        .text(legend_name);
+
+}
+
+function show_hospitals(toggle) {
+    hospitals_shown = toggle;
+    redraw();
+}
+
+function draw_hospitals() {
+    d3.json("data/lookup/hospitals_latlong_lookup.json", function(json) {
+        g.selectAll("path")
+             .data(Object.keys(json))
+           .enter().append("circle")
+             .attr("r", 5)
+             .attr("class", "hospital")
+             //.style("fill", "#ff8000")
+             .attr("transform", function(d) {return "translate(" + projection([json[d][1], json[d][0]]) + ")";})
+            
+        g.selectAll("path")
+        .data(Object.keys(json))
+           .enter().append("text")
+            .attr("transform", function(d) {return "translate(" + projection([json[d][1], json[d][0]]) + ")";})
+            .attr("class", "hospital")
+            //.style("fill", "#ccc")
+            .style("font-size", "0.6em")
+            .text(function(d) { return d;});
+
+     });
 }
 
 function draw_bar() {
@@ -357,7 +396,10 @@ function redraw() {
 
     init(width, height);
     if (datatype === "timeseries") {
-        draw_map();    
+        draw_map();
+        if(hospitals_shown) {
+            draw_hospitals();     
+        }   
     }
     else if (datatype === "multivariate") {
         draw_bar()

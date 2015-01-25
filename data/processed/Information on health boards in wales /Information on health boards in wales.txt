@@ -1,11 +1,6 @@
-
-
 *name:*
-Information on health boards in wales
+
 
 *attribution_short:*
-Public Health Wales Observatory
 
 *attribution_long:*
-http://www.wales.nhs.uk/sitesplus/922/home
-
