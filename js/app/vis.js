@@ -106,11 +106,6 @@ function draw_data(field) {
     redraw();
 }
 
-
-function get_times() {
-     return fields;
-}
-
 function get_fields() {
      return fields;
 }
@@ -165,23 +160,10 @@ function init(width, height) {
         .style("fill", "#72BBBF")
         //.on('click', deselect);
 }
-/*
-// select a map area
-function select(d) {
-    // get the id of the selected map area
-    var id = "#" + d.id;
-    // remove the selected class from any other selected areas
-    d3.selectAll(".selected")
-        .attr("class", "area")
-        .attr("class", function(d) { return quantize(rateById.get(d.id)); })
-    // and add it to this area
-    d3.select(id)
-        .attr("class", "selected area")
-}
-*/
+
 
 // draw our map on the SVG element
-function draw(boundaries) {
+function draw_map(boundaries) {
 
     projection
         .scale(1)
