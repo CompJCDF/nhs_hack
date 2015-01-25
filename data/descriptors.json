@@ -50,7 +50,7 @@
         "name": "A&E Waiting Times (#) -- Dec 2014",
         "attribution_url": "http://www.infoandstats.wales.nhs.uk/page.cfm?orgid=869&pid=62956",
         "attribution_desc": "Accident and Emergency Report",
-        "attribution_org": "NHS Wales, informatino and statistics",
+        "attribution_org": "NHS Wales, information and statistics",
         "fpath": "data/derived/ambulance/ambulances_abs_2014dec.csv",
         "data_type": "multivariate",
         "mapdesc":
