@@ -88,4 +88,26 @@
             }
         ]
     }
+
+    {
+        "name": "Birth Total",
+        "attribution_url": "http://www.ons.gov.uk/ons/publications/re-reference-tables.html?edition=tcm%3A77-317529",
+        "attribution_desc": "Birth Total by local authority of usual residence of mother from 2008-2013",
+        "attribution_org": "Office for National Statistics",
+        "fpath": "data/derived/birth/birth_total.csv",
+        "data_type": "timeseries",
+        "mapdesc":
+        {
+            "type": "local_authority",
+            "field_indx": 0
+        },
+        "attributes":
+        [
+            {
+                "name": "Birth Total",
+                "field_indx": [1,6],
+                "type": "float"
+            }
+        ]
+    }
 ]
