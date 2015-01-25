@@ -136,7 +136,7 @@
     {
         "name": "Satifaction of Hospital Care - Percent",
         "attribution_url": "https://statswales.wales.gov.uk/Catalogue/Health-and-Social-Care/NHS-Performance",
-        "attribution_desc": "???",
+        "attribution_desc": "Patient Satisfaction Survey Results (Hospital Visits 2013-14)",
         "attribution_org": "Stats Wales",
         "fpath": "data/derived/hospital_care/hospital_care_satisfaction.csv",
         "data_type": "multivariate",
@@ -155,7 +155,7 @@
     {
         "name": "Adults who were overweight or obese",
         "attribution_url": "http://wales.gov.uk/statistics-and-research/welsh-health-survey/?lang=en",
-        "attribution_desc": "Welsh Health Survey, Adults who were overweight or obese, data for 2003-2013",
+        "attribution_desc": "Welsh Health Survey, Adults who were overweight or obese, data for 2003-2013, in percentage",
         "attribution_org": "wales.org.uk",
         "fpath": "data/derived/obesity/survey_overweight_obese.csv",
 
@@ -168,7 +168,7 @@
         "attributes":
         [
             {
-                "name": "Adults who were overweight or obese",
+                "name": "Adults who were overweight or obese (%)",
                 "field_indx": [1,9],
                 "type": "float"
             }
@@ -178,7 +178,7 @@
     {
         "name": "Adults who were obese",
         "attribution_url": "http://wales.gov.uk/statistics-and-research/welsh-health-survey/?lang=en",
-        "attribution_desc": "Welsh Health Survey, Adults who were obese, data for 2003-2013",
+        "attribution_desc": "Welsh Health Survey, Adults who were obese, data for 2003-2013, in percentage",
         "attribution_org": "wales.org.uk",
         "fpath": "data/derived/obesity/survey_obese.csv",
         "data_type": "timeseries",
@@ -190,7 +190,7 @@
         "attributes":
         [
             {
-                "name": "Adults who were obese",
+                "name": "Adults who were obese (%)",
                 "field_indx": [1,9],
                 "type": "float"
             }
@@ -212,7 +212,7 @@
         "attributes":
         [
             {
-                "name": "Adults who were obese",
+                "name": "% alduts who reported being a current smoker",
                 "field_indx": [1,9],
                 "type": "float"
             }
@@ -242,7 +242,7 @@
     },
 
     {
-        "name": "Adults who ate more than five portions of fruit and veg",
+        "name": "Adults who ate at least five portions of fruit and veg",
         "attribution_url": "http://wales.gov.uk/statistics-and-research/welsh-health-survey/?lang=en",
         "attribution_desc": "Welsh Health Survey per centage who ate five or more portions of fruit and vegetables the previous day",
         "attribution_org": "Stats Wales",
@@ -257,7 +257,73 @@
         [
             {
                 "name": "% who ate portions of fruit and veg",
-                "field_indx": [1,6],
+                "field_indx": [1,5],
+                "type": "float"
+            }
+        ]
+    },
+
+    {
+        "name": "Adults who ate at least five portions of fruit and veg",
+        "attribution_url": "http://wales.gov.uk/statistics-and-research/welsh-health-survey/?lang=en",
+        "attribution_desc": "Welsh Health Survey per centage who ate five or more portions of fruit and vegetables the previous day",
+        "attribution_org": "Stats Wales",
+        "fpath": "data/derived/fruit_veg/fruit_veg.csv",
+        "data_type": "timeseries",
+        "mapdesc":
+        {
+            "type": "health_board",
+            "field_indx": 0
+        },
+        "attributes":
+        [
+            {
+                "name": "% who ate portions of fruit and veg",
+                "field_indx": [1,5],
+                "type": "float"
+            }
+        ]
+    },
+
+    {
+        "name": "Adults who reported being physically active on 5 or more days in the past week",
+        "attribution_url": "http://wales.gov.uk/statistics-and-research/welsh-health-survey/?lang=en",
+        "attribution_desc": "Welsh Health Survey per centage who reported being physically active on 5 or more days in the past week, in percentage",
+        "attribution_org": "Stats Wales",
+        "fpath": "data/derived/phys_activity/phys_activity_5+.csv",
+        "data_type": "timeseries",
+        "mapdesc":
+        {
+            "type": "health_board",
+            "field_indx": 0
+        },
+        "attributes":
+        [
+            {
+                "name": "Adults who reported being physically active on 5 or more days in the past week (%)",
+                "field_indx": [1,9],
+                "type": "float"
+            }
+        ]
+    },
+
+    {
+        "name": "Adults who reported being physically active on no day in the past week",
+        "attribution_url": "http://wales.gov.uk/statistics-and-research/welsh-health-survey/?lang=en",
+        "attribution_desc": "Welsh Health Survey per centage who reported being physically active on no day in the past week, in percentage",
+        "attribution_org": "Stats Wales",
+        "fpath": "data/derived/phys_activity/phys_activity_no.csv",
+        "data_type": "timeseries",
+        "mapdesc":
+        {
+            "type": "health_board",
+            "field_indx": 0
+        },
+        "attributes":
+        [
+            {
+                "name": "Adults who reported being physically active on no day in the past week (%)",
+                "field_indx": [1,9],
                 "type": "float"
             }
         ]
