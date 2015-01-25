@@ -246,6 +246,7 @@ function show_hospital_toggle(){
         add_class(ui.hospital_toggle, "shown");
         ui.hospital_toggle.getElementsByTagName("span")[0].innerHTML = "Show hospitals";
         remove_class(ui.hospital_toggle, "enabled");
+        show_hospitals(false);
 
         ui.hospital_toggle.onclick = function(){
             if(ui.hospital_toggle.className.indexOf("enabled") == -1){
