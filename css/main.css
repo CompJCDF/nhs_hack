@@ -142,18 +142,6 @@ h1{
     left:100%;
 }
 
-#variants{
-    display:none;
-    width:300px;
-    position:absolute;
-    bottom:100px;
-    left:1%;
-    z-index:2;
-}
-#variants.shown{
-    display:block;
-}
-
 #controls_opener{
     float:right;
     width:40px;

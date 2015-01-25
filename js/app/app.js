@@ -5,7 +5,6 @@ var ui = {
     timeline: null,
     timeline_slider: null,
     map: null,
-    variants: null
 };
 
 var net = {
@@ -40,7 +39,6 @@ function init_ui(){
     ui.timeline = document.getElementById("timeline");
     ui.timeline_slider = timeline.getElementsByTagName("div")[0];
     ui.map = document.getElementById("map");
-    ui.variants = document.getElementById("variants");
     if(! /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
         toggle_controls(); 
     }
@@ -84,11 +82,9 @@ function load_set(set_id){
     }
     if(set.data_type == "timeseries"){
         show_timeline();       
-        hide_variants();
     }   
     else if(set.data_type == "multivariate"){
         hide_timeline();
-        show_variants();
     }
     new_data(set);
 }
@@ -149,26 +145,6 @@ function calculate_time(event){
 
 function hide_timeline(){
     remove_class(ui.timeline, "shown");
-}
-
-function show_variants(){
-    if(ui.variants.className.indexOf("shown") == -1){
-        add_class(ui.variants, "shown");
-        var variants = get_fields();
-        var s = "";
-        for(var i = 0; i < variants.length; i++){
-            s+='<option value="'+variants[i]+'">'+variants[i]+'</option>';
-        }                
-        ui.variants.innerHTML = s;
-        ui.variants.onclick = function(){
-            var val = ui.variants.value;
-            set_field(val); 
-        }; 
-    }
-}
-
-function hide_variants(){
-    remove_class(ui.variants, "shown");
 }
 
 function toggle_controls(){
