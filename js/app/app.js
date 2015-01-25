@@ -170,6 +170,10 @@ function load_metadata(){
 
             ui.data_sets.innerHTML += e+"</lI>";
         }
+        
+        if(data_sets.length > 0){
+            load_set(data_sets[0].id);
+        }
     });  
     
 }
