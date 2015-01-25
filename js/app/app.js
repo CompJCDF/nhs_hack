@@ -3,7 +3,8 @@ var ui = {
     control_panel: null,
     data_sets: null,
     timeline: null,
-    timeline_slider: null
+    timeline_slider: null,
+    map: null,
 };
 
 var net = {
@@ -25,6 +26,7 @@ var net = {
 
 var data_sets = [];
 var times = [];
+var time = 0;
 
 function log(text){
     console.log(text);
@@ -36,8 +38,9 @@ function init_ui(){
     ui.data_sets = document.getElementById("data_sets");
     ui.timeline = document.getElementById("timeline");
     ui.timeline_slider = timeline.getElementsByTagName("div")[0];
+    ui.map = document.getElementById("map");
     if(! /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-        add_class(ui.control_panel, "open");
+        toggle_controls(); 
     }
 }
 
@@ -57,7 +60,8 @@ function load_metadata(){
             var e = "<li id='set_"+data_sets[i].id+"' >";
             e+='<span class="name" onclick="load_set('+data_sets[i].id+');">'+data_sets[i].name+"</span>";
             e+='<span class="source">'+data_sets[i].attribution_desc+"</span>";
-            e+='<span class="source"><a href="'+data_sets[i].attribution_url+'" target="_blank">'+data_sets[i].attribution_org+"</a></span>";
+            e+='<span class="org"><a href="'+data_sets[i].attribution_url+'" target="_blank">'+data_sets[i].attribution_org+"</a></span>";
+            e+='<span class="type background '+data_sets[i].data_type+'">'+data_sets[i].data_type+'</span>';
 
             ui.data_sets.innerHTML += e+"</lI>";
         }
@@ -76,20 +80,31 @@ function load_set(set_id){
             remove_class(document.getElementById("set_"+data_sets[i].id), "ticked");
         }
     }
-    if(set.attributes[0].field_indx.length > 1){
+    if(set.data_type == "timeseries"){
         show_timeline();       
     }   
-    else{hide_timeline();}
+    else if(set.data_type == "multivariate"){
+        hide_timeline();
+    }
     new_data(set);
 }
 
 function show_timeline(){
     if(ui.timeline.className.indexOf("shown") == -1){
-        times  = get_times();
+        times = get_fields();
+        ui.timeline_slider.style.left = "100%";
+        setTimeout(function(){
+            // Give time for times to load
+            ui.timeline_slider.innerHTML = times[times.length-1];
+        },100);
+        time = 0;
         add_class(ui.timeline, "shown"); 
         ui.timeline.onclick = function(event){
-            ui.timeline_slider.style.left = event.pageX-25+"px";
-            calculate_time(event);
+            var rect = ui.timeline.getBoundingClientRect();
+            if(event.pageX > rect.left-25 && event.pageX < rect.right-25){
+                ui.timeline_slider.style.left = event.pageX-25+"px"; 
+                calculate_time(event);
+            }
         };
         var flag = -1;
         ui.timeline.addEventListener("mousedown", function(){
@@ -111,7 +126,6 @@ function show_timeline(){
 }
 
 function calculate_time(event){
-    var time = 0;
     var rect = ui.timeline.getBoundingClientRect();
     var length = rect.right - rect.left;
     var interval_size = length / times.length;
@@ -135,6 +149,7 @@ function hide_timeline(){
 
 function toggle_controls(){
     toggle_class(ui.control_panel, "open");
+    toggle_class(ui.controls_opener, "open");
 }
 
 function toggle_class(el, name){
