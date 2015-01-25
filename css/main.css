@@ -70,6 +70,7 @@ h1{
     background-size:30px 30px;
     background-position:left center;
     background-repeat:no-repeat;
+    position:relative;
 }
 #data_sets li.ticked{
     background-image:url('../media/ticked.png');
@@ -90,11 +91,22 @@ h1{
     font-size:13px;
     color:rgb(50,50,50);
     display:block;
+    height:20px;
 }
 #data_sets li .org{
     font-size:11px;
     display:block;
 }
+#data_sets li .delete{
+    display:inline-block;
+    float:right;
+    width:20px;
+    height:20px;
+    cursor:pointer;
+    background-image:url('../media/trash.png');
+    background-size:cover;
+}
+
 
 .background{
     padding-left:23px;
@@ -231,6 +243,7 @@ h1{
 
 #control_panel{
     position:absolute;
+    overflow-y:scroll;
     right:0px;
     top:0px;
     width:0px;

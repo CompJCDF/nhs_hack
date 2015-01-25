@@ -91,6 +91,33 @@ function store_data(){
     load_metadata();
 }
 
+function delete_local_dataset(id){
+    var stored_descriptors = localStorage.local_descriptors;
+    try{
+        stored_descriptors = JSON.parse(stored_descriptors);
+    }catch(err){stored_descriptors = [];}
+
+    var stored_data = localStorage.local_data;
+    try{
+        stored_data = JSON.parse(stored_data);
+    }catch(err){stored_data = [];}
+ 
+    var new_descriptors = []; var new_data = [];
+    for(var i = 0; i < stored_descriptors.length; i++){
+        if(stored_descriptors[i].spath != id){
+            new_descriptors.push(stored_descriptors[i]);
+        }
+    }
+    for(var i = 0; i < stored_data.length; i++){
+        if(stored_data[i].id != id){
+            new_data.push(stored_data[i]);
+        }
+    }
+    localStorage.local_descriptors = JSON.stringify(new_descriptors);
+    localStorage.local_data = JSON.stringify(new_data);
+    load_metadata();
+}
+
 function get_local_dataset(id){
     var stored_data = localStorage.local_data;
     try{
@@ -102,10 +129,8 @@ function get_local_dataset(id){
             return stored_data[i].csv;
         }
     }
+    return null;
 }
-
-function get_local_metadata(){
-    }
 
 function load_metadata(){
     ui.data_sets.innerHTML = "";
@@ -135,7 +160,11 @@ function load_metadata(){
             e+='<span class="name" onclick="load_set('+data_sets[i].id+');">'+data_sets[i].name+"</span>";
             e+='<span class="source">'+data_sets[i].attribution_desc+"</span>";
             e+='<span class="org"><a href="'+data_sets[i].attribution_url+'" target="_blank">'+data_sets[i].attribution_org+"</a></span>";
-            e+='<span class="type background '+data_sets[i].data_type+'">'+data_sets[i].data_type+'</span>';
+            e+='<span class="type background '+data_sets[i].data_type+'">'+data_sets[i].data_type;
+            if(data_sets[i].spath != undefined){
+                e+='<span class="delete" onclick="delete_local_dataset('+data_sets[i].spath+');"></span>';
+            }
+            e+= '</span>';
 
             ui.data_sets.innerHTML += e+"</lI>";
         }
