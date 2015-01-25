@@ -95,7 +95,7 @@ function load_set(set_id){
 
 function show_timeline(){
     if(ui.timeline.className.indexOf("shown") == -1){
-        times = get_times();
+        times = get_fields();
         ui.timeline_slider.style.left = "100%";
         setTimeout(function(){
             // Give time for times to load

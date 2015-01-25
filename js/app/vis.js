@@ -5,15 +5,22 @@ var width;
 // but we're using the full window height
 var height;
 
-// variables for map drawing
-var projection, svg, path, g;
-var boundaries, units;
+// variables for drawing
+var svg, g;
 var margin;
 
-var times = [];
+// variables for map drawing
+var projection, path;
+var boundaries, units;
+
+// data variables
+var times = []; // time series
+var fields = []; // multi-variate data
 var data;
+
+// data descriptors
 var name;
-var area;
+var area; //health board or local authority or...
 var datatype;
 
 var lad_lookup = [{"LAD12NM": "Isle of Anglesey", "LAD12CD": "W06000001"}, {"LAD12NM": "Gwynedd", "LAD12CD": "W06000002"}, {"LAD12NM": "Conwy", "LAD12CD": "W06000003"}, {"LAD12NM": "Denbighshire", "LAD12CD": "W06000004"}, {"LAD12NM": "Flintshire", "LAD12CD": "W06000005"}, {"LAD12NM": "Wrexham", "LAD12CD": "W06000006"}, {"LAD12NM": "Powys", "LAD12CD": "W06000023"}, {"LAD12NM": "Ceredigion", "LAD12CD": "W06000008"}, {"LAD12NM": "Pembrokeshire", "LAD12CD": "W06000009"}, {"LAD12NM": "Carmarthenshire", "LAD12CD": "W06000010"}, {"LAD12NM": "Swansea", "LAD12CD": "W06000011"}, {"LAD12NM": "Neath Port Talbot", "LAD12CD": "W06000012"}, {"LAD12NM": "Bridgend", "LAD12CD": "W06000013"}, {"LAD12NM": "The Vale of Glamorgan", "LAD12CD": "W06000014"}, {"LAD12NM": "Rhondda Cynon Taf", "LAD12CD": "W06000016"}, {"LAD12NM": "Merthyr Tydfil", "LAD12CD": "W06000024"}, {"LAD12NM": "Caerphilly", "LAD12CD": "W06000018"}, {"LAD12NM": "Blaenau Gwent", "LAD12CD": "W06000019"}, {"LAD12NM": "Torfaen", "LAD12CD": "W06000020"}, {"LAD12NM": "Monmouthshire", "LAD12CD": "W06000021"}, {"LAD12NM": "Newport", "LAD12CD": "W06000022"}, {"LAD12NM": "Cardiff", "LAD12CD": "W06000015"}];
@@ -40,29 +47,38 @@ var rateById = d3.map();
 var quantize = d3.scale.quantize()
     .range(d3.range(9).map(function(i) { return "q" + i + "-9"; }));
 
+
+// add new data to the visualisation
 function new_data(descriptor) {
+    // extract the descriptors
     fpath = descriptor.fpath;
     area = descriptor.mapdesc.type;
     name = descriptor.name;
     datatype = descriptor.data_type;
 
+    // check what resolution of data we're dealing with
     if(area === "local_authority") {
-        load_boundaries("json/topo/lad.json", "lad");
+        if(datatype !== "multivariate") {
+            load_boundaries("json/topo/lad.json", "lad");    
+        }
         load_data(fpath);
     } else if(area === "health_board") {
-        load_boundaries("json/topo/lhb.json", "lhb");
+        if(datatype !== "multivariate") {
+            load_boundaries("json/topo/lhb.json", "lhb");    
+        }
         load_data(fpath);
     }
 }
 
 function load_data(data_file) {
     d3.csv(data_file, function(d) {
-        var fields = Object.getOwnPropertyNames(d[0]);
-        var index = fields.indexOf(area);
+        var f = Object.getOwnPropertyNames(d[0]);
+        var index = f.indexOf(area);
         if (index > -1) {
-            fields.splice(index, 1);
+            f.splice(index, 1);
         }
-        times = fields;
+        times = f;
+        fields = f;
         data = d;
         draw_data(times[0]);
     });   
@@ -92,7 +108,11 @@ function draw_data(field) {
 
 
 function get_times() {
-     return times;
+     return fields;
+}
+
+function get_fields() {
+     return fields;
 }
 
 function set_time(year) {
