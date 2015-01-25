@@ -13,6 +13,8 @@ var margin;
 var times = [];
 var data;
 var name;
+var area;
+var datatype;
 
 var lad_lookup = [{"LAD12NM": "Isle of Anglesey", "LAD12CD": "W06000001"}, {"LAD12NM": "Gwynedd", "LAD12CD": "W06000002"}, {"LAD12NM": "Conwy", "LAD12CD": "W06000003"}, {"LAD12NM": "Denbighshire", "LAD12CD": "W06000004"}, {"LAD12NM": "Flintshire", "LAD12CD": "W06000005"}, {"LAD12NM": "Wrexham", "LAD12CD": "W06000006"}, {"LAD12NM": "Powys", "LAD12CD": "W06000023"}, {"LAD12NM": "Ceredigion", "LAD12CD": "W06000008"}, {"LAD12NM": "Pembrokeshire", "LAD12CD": "W06000009"}, {"LAD12NM": "Carmarthenshire", "LAD12CD": "W06000010"}, {"LAD12NM": "Swansea", "LAD12CD": "W06000011"}, {"LAD12NM": "Neath Port Talbot", "LAD12CD": "W06000012"}, {"LAD12NM": "Bridgend", "LAD12CD": "W06000013"}, {"LAD12NM": "The Vale of Glamorgan", "LAD12CD": "W06000014"}, {"LAD12NM": "Rhondda Cynon Taf", "LAD12CD": "W06000016"}, {"LAD12NM": "Merthyr Tydfil", "LAD12CD": "W06000024"}, {"LAD12NM": "Caerphilly", "LAD12CD": "W06000018"}, {"LAD12NM": "Blaenau Gwent", "LAD12CD": "W06000019"}, {"LAD12NM": "Torfaen", "LAD12CD": "W06000020"}, {"LAD12NM": "Monmouthshire", "LAD12CD": "W06000021"}, {"LAD12NM": "Newport", "LAD12CD": "W06000022"}, {"LAD12NM": "Cardiff", "LAD12CD": "W06000015"}];
 var lhb_lookup = [{"LHBCD": "W11000023", "LHBNM": "Betsi Cadwaladr University"}, {"LHBCD": "W11000024", "LHBNM": "Powys Teaching"}, {"LHBCD": "W11000025", "LHBNM": "Hywel Dda"}, {"LHBCD": "W11000026", "LHBNM": "Abertawe Bro Morgannwg University"}, {"LHBCD": "W11000029", "LHBNM": "Cardiff and Vale University"}, {"LHBCD": "W11000027", "LHBNM": "Cwm Taf"}, {"LHBCD": "W11000028", "LHBNM": "Aneurin Bevan"}];
@@ -40,75 +42,49 @@ var quantize = d3.scale.quantize()
 
 function new_data(descriptor) {
     fpath = descriptor.fpath;
-    type = descriptor.mapdesc.type;
+    area = descriptor.mapdesc.type;
     name = descriptor.name;
-    if(type === "local_authority") {
+    datatype = descriptor.data_type;
+
+    if(area === "local_authority") {
         load_boundaries("json/topo/lad.json", "lad");
-        load_lad_data(fpath);
-    } else if(type === "health_board") {
+        load_data(fpath);
+    } else if(area === "health_board") {
         load_boundaries("json/topo/lhb.json", "lhb");
-        load_lhb_data(fpath);
+        load_data(fpath);
     }
-    
 }
 
-function load_lhb_data(data_file) {
- d3.csv(data_file, function(d) {
-    var fields = Object.getOwnPropertyNames(d[0]);
-    var index = fields.indexOf("health_board");
-    if (index > -1) {
-        fields.splice(index, 1);
-    }
-    times = fields;
-    data = d;
-    draw_lhb_data(times[0]);
-});   
-}
-
-function load_lad_data(data_file) {
+function load_data(data_file) {
     d3.csv(data_file, function(d) {
         var fields = Object.getOwnPropertyNames(d[0]);
-        var index = fields.indexOf("local_authority");
+        var index = fields.indexOf(area);
         if (index > -1) {
             fields.splice(index, 1);
         }
         times = fields;
         data = d;
         draw_data(times[0]);
-    });
+    });   
 }
 
-function draw_lhb_data(field) {
+function draw_data(field) {
     max = 0;
     min = data[0][field]; 
     
     for(var i = 0; i < data.length; i++) {
-        lhb = lhb_lookup_by_name(data[i].health_board);
+        if (area === "local_authority") {
+            key = lad_lookup_by_name(data[i][area]);
+        } else if (area === "health_board") {
+            key = lhb_lookup_by_name(data[i][area])
+        }
         if(+data[i][field] > max) {
             max = +data[i][field];
         }
         if(+data[i][field] < min) {
             min = +data[i][field];
         }
-        rateById.set(lhb, +data[i][field]);
-        quantize.domain([min, max]);
-    }
-    redraw();
-}
-
-function draw_data(year) {
-    max = 0;
-    min = data[0][year]; 
-    
-    for(var i = 0; i < data.length; i++) {
-        lad = lad_lookup_by_name(data[i].local_authority);
-        if(+data[i][year] > max) {
-            max = +data[i][year];
-        }
-        if(+data[i][year] < min) {
-            min = +data[i][year];
-        }
-        rateById.set(lad, +data[i][year]);
+        rateById.set(key, +data[i][field]);
         quantize.domain([min, max]);
     }
     redraw();
