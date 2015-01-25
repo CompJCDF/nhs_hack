@@ -226,28 +226,26 @@ function draw_bar() {
     var w = width - margin_right - 20;
     var h = height - 30;
 
-var x0 = d3.scale.ordinal()
-    .rangeRoundBands([0, w], .1);
+    var x0 = d3.scale.ordinal()
+        .rangeRoundBands([0, w], .1);
 
-var x1 = d3.scale.ordinal();
+    var x1 = d3.scale.ordinal();
 
-var y = d3.scale.linear()
-    .range([h, 0]);
+    var y = d3.scale.linear()
+        .range([h, 0]);
 
-var color = d3.scale.ordinal()
-    .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
+    var color = d3.scale.ordinal()
+        .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
 
-var xAxis = d3.svg.axis()
-    .scale(x0)
-    .orient("bottom");
+    var xAxis = d3.svg.axis()
+        .scale(x0)
+        .orient("bottom");
 
-var yAxis = d3.svg.axis()
-    .scale(y)
-    .orient("left")
-    .tickFormat(d3.format(".2s"));
+    var yAxis = d3.svg.axis()
+        .scale(y)
+        .orient("left")
+        .tickFormat(d3.format(".2s"));
 
-log(width);
-log(height);
 
   var fieldNames = d3.keys(data[0]).filter(function(key) { return key !== area; });
 
@@ -269,8 +267,8 @@ log(height);
       .call(yAxis)
     .append("text")
       .attr("transform", "rotate(-90)")
-      .attr("y", 6)
-      .attr("x", 12)
+      .attr("y", 12)
+      .attr("x", 0)
       .attr("dy", ".71em")
       .style("text-anchor", "end")
       .text("Number of Patients");
@@ -305,7 +303,7 @@ log(height);
 
   legend.append("text")
       .attr("x", w - 58)
-      .attr("y", function(d, i){ return h/2 - (i*48);})
+      .attr("y", function(d, i){ return h/2 - (i*44);})
       .attr("dy", ".35em")
       .style("text-anchor", "end")
       .text(function(d) { return d; });

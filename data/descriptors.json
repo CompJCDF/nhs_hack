@@ -24,7 +24,7 @@
     },
 
     {
-        "name": "Ambulance Waiting Time (#) -- Dec 2014",
+        "name": "A&E Waiting Times (#) -- Dec 2014",
         "attribution_url": "http://ambulance",
         "attribution_desc": "blaaaambulance.",
         "attribution_org": "Office of Ambulances",
@@ -46,7 +46,7 @@
 
 
     {
-        "name": "Ambulance Waiting Time (%) -- Dec 2014",
+        "name": "A&E Waiting Time (%) -- Dec 2014",
         "attribution_url": "http://ambulance",
         "attribution_desc": "blaaaambulance.",
         "attribution_org": "Office of Ambulances",
