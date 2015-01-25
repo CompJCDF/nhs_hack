@@ -46,9 +46,9 @@ var rateById = d3.map();
 var quantize = d3.scale.quantize()
     .range(d3.range(9).map(function(i) { return "q" + i + "-9"; }));
 
-
 // add new data to the visualisation
 function new_data(descriptor) {
+    d3.select("svg").remove();
     // extract the descriptors
     fpath = descriptor.fpath;
     area = descriptor.mapdesc.type;
@@ -200,8 +200,14 @@ function draw_map() {
 
     var ls_w = 20, ls_h = 20;
 
+    if(width > 500) {
+        var x_pos = 100;
+    } else {
+        var x_pos = 20;
+    }
+
     legend.append("rect")
-        .attr("x", 100)
+        .attr("x", x_pos)
         .attr("y", function(d, i){ return height/2 - (i*ls_h) - 2*ls_h;})
         .attr("width", ls_w)
         .attr("height", ls_h)
@@ -209,51 +215,48 @@ function draw_map() {
         .style("opacity", 0.8);
 
     legend.append("text")
-        .attr("x", 140)
+        .attr("x", x_pos + 20)
         .attr("y", function(d, i){ return height/2 - (i*ls_h) - ls_h - 4;})
         .text(function(d, i){ return quantize.invertExtent(quantize.range()[i])[0].toFixed(2) + "-" + quantize.invertExtent(quantize.range()[i])[1].toFixed(2); });
 
     legend.append("text")
-        .attr("x", 120)
+        .attr("x", x_pos)
         .attr("y", height/2)
         .text(name);
 }
 
 function draw_bar() {
 
-    var margin_right = parseInt(d3.select('#control_panel').style("width"));
-    var w = width - 2 * margin_right;
-    var h = height - 80;
+    if(width > 500) {
+        var margin_right = parseInt(d3.select('#control_panel').style("width"));    
+    } else {
+        var margin_right = 0;
+    }
+    
 
-var x0 = d3.scale.ordinal()
-    .rangeRoundBands([0, w], .1);
+    var w = width - margin_right - 40;
+    var h = height - 200;
 
-var x1 = d3.scale.ordinal();
+    var x0 = d3.scale.ordinal()
+        .rangeRoundBands([0, w], .1)
 
-var y = d3.scale.linear()
-    .range([h, 0]);
+    var x1 = d3.scale.ordinal();
 
-var color = d3.scale.ordinal()
-    .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
+    var y = d3.scale.linear()
+        .range([h, 0]);
 
-var xAxis = d3.svg.axis()
-    .scale(x0)
-    .orient("bottom");
+    var color = d3.scale.ordinal()
+        .range(["#2171B5", "#6BAED6", "#C6DBEF", "#F7FBFF"]);
 
-var yAxis = d3.svg.axis()
-    .scale(y)
-    .orient("left")
-    .tickFormat(d3.format(".2s"));
+    var xAxis = d3.svg.axis()
+        .scale(x0)
+        .orient("bottom");
 
-log(width);
-log(height);
+    var yAxis = d3.svg.axis()
+        .scale(y)
+        .orient("left")
+        .tickFormat(d3.format(".2s"));
 
-var svg = d3.select("#map").append("svg")
-    .attr("width", w)
-    .attr("height", h)
-    .attr("fill", "none")
-  .append("g")
-    .attr("transform", "translate(" + margin_right + "," + margin_right + ")");
 
   var fieldNames = d3.keys(data[0]).filter(function(key) { return key !== area; });
 
@@ -267,15 +270,23 @@ var svg = d3.select("#map").append("svg")
 
   svg.append("g")
       .attr("class", "x axis")
-      .attr("transform", "translate(0," + height + ")")
-      .call(xAxis);
+      .attr("transform", "translate(0," + (h) + ")")
+      .call(xAxis)
+      .selectAll("text")  
+        .style("text-anchor", "end")
+        .attr("dx", "-.8em")
+        .attr("dy", ".15em")
+        .attr("transform", function(d) {
+            return "rotate(-45)" 
+            });;
 
   svg.append("g")
       .attr("class", "y axis")
       .call(yAxis)
     .append("text")
       .attr("transform", "rotate(-90)")
-      .attr("y", 6)
+      .attr("y", 12)
+      .attr("x", 0)
       .attr("dy", ".71em")
       .style("text-anchor", "end")
       .text("Number of Patients");
@@ -302,14 +313,15 @@ var svg = d3.select("#map").append("svg")
       .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
 
   legend.append("rect")
-      .attr("x", w - 18)
+      .attr("x", w - 40)
+      .attr("y", function(d, i){ return h/4 - (i*48);})
       .attr("width", 18)
       .attr("height", 18)
       .style("fill", color);
 
   legend.append("text")
-      .attr("x", w - 24)
-      .attr("y", 9)
+      .attr("x", w - 58)
+      .attr("y", function(d, i){ return h/4 - (i*44);})
       .attr("dy", ".35em")
       .style("text-anchor", "end")
       .text(function(d) { return d; });

@@ -2,7 +2,7 @@
 
 
     {
-        "name": "Life Expectancy -- Male",
+        "name": "Life Expectancy - Male (Years)",
         "attribution_url": "http://attrib",
         "attribution_desc": "Life expectancy collected over blaaa.",
         "attribution_org": "Office of Life Expectancy",
@@ -24,7 +24,7 @@
     },
 
     {
-        "name": "Ambulance Waiting Time (#) -- Dec 2014",
+        "name": "A&E Waiting Times (#) -- Dec 2014",
         "attribution_url": "http://ambulance",
         "attribution_desc": "blaaaambulance.",
         "attribution_org": "Office of Ambulances",
@@ -44,74 +44,13 @@
         ]
     },
 
-
     {
-        "name": "Ambulance Waiting Time (%) -- Dec 2014",
-        "attribution_url": "http://ambulance",
-        "attribution_desc": "blaaaambulance.",
-        "attribution_org": "Office of Ambulances",
-        "fpath": "data/derived/ambulance/ambulances_pcnt_2014dec.csv",
-        "data_type": "multivariate",
-        "mapdesc":
-        {
-            "type": "health_board",
-            "field_indx": 0
-        },
-        "attributes":
-        [
-            {"field_indx": [1], "type": "float", "name": "% less than 4 hours"},
-            {"field_indx": [2], "type": "float", "name": "% less than 8 hours"},
-            {"field_indx": [3], "type": "float", "name": "% less than 12 hours"},
-            {"field_indx": [4], "type": "float", "name": "% more than 12 hours"}
-        ]
-    },
-
-
-    {
-        "name": "Cancer Treatment Pathways -- Urgent",
-        "attribution_url": "http://cancertreatment",
-        "attribution_desc": "oncology stuff.",
-        "attribution_org": "Office of Oncology",
-        "fpath": "data/derived/cancer_patients/urgent__pcnt__treatment_startered_within_62days__2014nov.csv",
+        "name": "Legal Abortions — rate per 1000 women",
+        "attribution_url": "https://www.gov.uk/government/collections/abortion-statistics-for-england-and-wales",
+        "attribution_desc": "legal abortions — rate per 1000 resident women aged 15-44 per year from 2009-2013",
+        "attribution_org": "gov.uk",
+        "fpath": "data/derived/abortion/abortion_rate_per_1000_resident_women_aged_15-44.csv",
         "data_type": "timeseries",
-        "mapdesc":
-        {
-            "type": "health_board",
-            "field_indx": 0
-        },
-        "attributes":
-        [
-            {"field_indx": [1], "type": "float", "name": "Treatment Started within 62 Days (% Patients)"}
-        ]
-    },
-
-
-    {
-        "name": "Cancer Treatment Pathways -- Non-Urgent",
-        "attribution_url": "http://cancertreatment",
-        "attribution_desc": "oncology stuff.",
-        "attribution_org": "Office of Oncology",
-        "fpath": "data/derived/cancer_patients/not_urgent__pcnt__treatment_started_within_31days__2014nov.csv",
-        "data_type": "timeseries",
-        "mapdesc":
-        {
-            "type": "health_board",
-            "field_indx": 0
-        },
-        "attributes":
-        [
-            {"field_indx": [1], "type": "float", "name": "Treatment Started within 31 Days (% Patients)"}
-        ]
-    },
-
-
-    {
-        "name": "Abortion Rates",
-        "attribution_url": "http://abortion",
-        "attribution_desc": "abortion stats stuff.",
-        "attribution_org": "Department of Babies",
-        "fpath": "data/derived/abortion/abortion_rate_per_1000_2011.csv",
-        "data_type": "timeseries",   
         "mapdesc":
         {
             "type": "local_authority",
@@ -119,7 +58,11 @@
         },
         "attributes":
         [
-            {"field_indx": [2], "type": "float", "name": "% per Resident Women 15-44"}
+            {
+                "name": "legal abortions — rate per 1000 women",
+                "field_indx": [1,5],
+                "type": "float"
+            }
         ]
     }
 
