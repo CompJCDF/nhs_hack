@@ -4,6 +4,7 @@ var ui = {
     data_sets: null,
     timeline: null,
     timeline_slider: null,
+    hospital_toggle: null,
     map: null,
     config_opener: null,
     config_overlay: null,
@@ -51,6 +52,7 @@ function init_ui(){
     ui.config_closer = document.getElementById("close_config");
     ui.json_field = document.getElementById("descriptor");
     ui.csv_field = document.getElementById("csv_data");
+    ui.hospital_toggle = document.getElementById("show_hospitals");
     if(! /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
         toggle_controls(); 
     }
@@ -185,9 +187,11 @@ function load_set(set_id){
         }
     }
     if(set.data_type == "timeseries"){
+        show_hospital_toggle();
         show_timeline();       
     }   
     else if(set.data_type == "multivariate"){
+        hide_hospital_toggle();
         hide_timeline();
     }
     new_data(set);
@@ -229,6 +233,32 @@ function show_timeline(){
     }
 }
 
+function hide_timeline(){
+    remove_class(ui.timeline, "shown");
+}
+
+function show_hospital_toggle(){
+    if(ui.hospital_toggle.className.indexOf("shown") == -1){
+        add_class(ui.hospital_toggle, "shown");
+        ui.hospital_toggle.getElementsByTagName("span")[0].innerHTML = "Show hospitals";
+        remove_class(ui.hospital_toggle, "enabled");
+
+        ui.hospital_toggle.onclick = function(){
+            if(ui.hospital_toggle.className.indexOf("enabled") == -1){
+                add_class(ui.hospital_toggle, "enabled");
+                
+            }
+            else{
+                remove_class(ui.hospital_toggle, "enabled");
+            }
+        }
+    }
+}
+
+function hide_hospital_toggle(){
+    remove_class(ui.hospital_toggle, "shown");
+}
+
 function calculate_time(event){
     var rect = ui.timeline.getBoundingClientRect();
     var length = rect.right - rect.left;
@@ -247,9 +277,7 @@ function calculate_time(event){
     }
 }
 
-function hide_timeline(){
-    remove_class(ui.timeline, "shown");
-}
+
 
 function toggle_controls(){
     toggle_class(ui.control_panel, "open");

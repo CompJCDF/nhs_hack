@@ -137,6 +137,26 @@ h1{
     z-index:1;
 }
 
+#show_hospitals{
+    display:none;
+    position:absolute;
+    left:1%;
+    bottom:100px;    
+    padding-left:45px;
+    background-image:url('../media/switch_off.png');
+    background-size:40px 40px;
+    background-repeat:no-repeat;
+    background-position:left center;
+    z-index:2; 
+    cursor:pointer;
+}
+#show_hospitals.shown{
+    display:block;
+}
+#show_hospitals.enabled{
+    background-image:url('../media/switch_on.png');
+}
+
 #timeline{
     display:none;
     width:45%;
