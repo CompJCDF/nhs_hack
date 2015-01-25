@@ -247,12 +247,6 @@ function draw_map() {
         .attr("x", x_pos + 22)
         .attr("y", function(d, i){ return height/2 - (i*ls_h) - ls_h - 4;})
         .text(function(d, i){ return quantize.invertExtent(quantize.range()[i])[0].toFixed(2) + "-" + quantize.invertExtent(quantize.range()[i])[1].toFixed(2); });
-
-    legend.append("text")
-        .attr("x", x_pos)
-        .attr("y", height/4 - 30 - y_off)
-        .text(name);
-
     legend.append("text")
         .attr("x", x_pos)
         .attr("y", height/2)
