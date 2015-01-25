@@ -246,6 +246,56 @@ function draw_map() {
         .text(name);
 }
 
+function draw_hospitals() {
+  d3.json("data/lookup/hospitals_latlong_lookup.json", function(json) {
+  // create paths for each region using the json data
+  // and the geo path generator to draw the shapes
+  //
+  // paint region polygon elements
+  g.selectAll("path")
+      .data(Object.keys(json))
+    .enter().append("rect")
+      .attr("x", function (key) {json[key][1]})
+      .attr("y", function (key) {json[key][0]})
+      .attr("width", 10) 
+      .attr("height", 10);
+  }
+
+
+  //
+  // add text labels (region name) to regions
+  regions_labels.selectAll("text")
+    .data(json.features)
+    .enter()
+    .append("svg:text")
+    .text(function(d){
+        return d.properties.name_abbr;
+    })
+    .attr("x", function(d){
+        right = path.bounds(d)[1][0]+2.0;
+        // [​[left, bottom], [right, top]​]
+        // API reference:
+        //   https://github.com/mbostock/d3/wiki/Geo-Paths#bounds
+        //   https://github.com/mbostock/d3/wiki/Geo-Paths#path_bounds
+        // hard-code specific adjustments to some labels
+        if(d.properties.name_abbr=="P-C-W"){
+          right += 2;
+        }
+        return right;
+    })
+    .attr("y", function(d){
+        cent = path.centroid(d)[1];
+        // hard-code specific adjustments to some labels
+        if($.inArray(d.properties.name_abbr, ["H-TW-SL", "P-C-W", "A-SS-R", "C-N-E", "M-SP-B"]) != -1) {
+          cent += 8;
+        }
+        return cent;
+    })
+    .attr("text-anchor","middle")
+    .attr('font-size','6pt');
+  });
+}
+
 function draw_bar() {
 
     if(width > 500) {

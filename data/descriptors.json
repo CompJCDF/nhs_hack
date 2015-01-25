@@ -131,5 +131,25 @@
                 "type": "float"
             }
         ]
+    },
+
+    {
+        "name": "Satifaction of Hospital Care - Percent",
+        "attribution_url": "https://statswales.wales.gov.uk/Catalogue/Health-and-Social-Care/NHS-Performance",
+        "attribution_desc": "???",
+        "attribution_org": "Stats Wales",
+        "fpath": "data/derived/hospital_care/hospital_care_satisfaction.csv",
+        "data_type": "multivariate",
+        "mapdesc":
+        {
+            "type": "health_board",
+            "field_indx": 0
+        },
+        "attributes":
+        [
+            {"field_indx": [1], "type": "float", "name": "% Very Satisfied"},
+            {"field_indx": [2], "type": "float", "name": "% Fairly Satisfied"}
+        ]
     }
+    
 ]
