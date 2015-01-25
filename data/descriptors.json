@@ -3,9 +3,9 @@
 
     {
         "name": "Cancer Treatment Waiting Times (Non-Urgent)",
-        "attribution_url": "http://attrib",
+        "attribution_url": "https://statswales.wales.gov.uk/Catalogue/Health-and-Social-Care/NHS-Hospital-Waiting-Times/Cancer-Waiting-Times/Quarterly/PatientsNewlyDiagnosedNotViaTheUrgentSuspectedCancerRouteStartingTreatment-by-LocalHealthBoard-Quarter",
         "attribution_desc": "Patients on the non-urgent cancer treatment pathway that began treatment within target (31 days).",
-        "attribution_org": "Office of Oncology",
+        "attribution_org": "Stats Wales",
         "fpath": "data/derived/cancer_patients/not_urgent__pcnt__treatment_started_within_31days__2year.csv",
         "data_type": "timeseries",
         "mapdesc":
