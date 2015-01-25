@@ -147,6 +147,7 @@
         },
         "attributes":
         [
+            {"name": "Satifaction of Hospital Care - Percent"},
             {"field_indx": [1], "type": "float", "name": "% Very Satisfied"},
             {"field_indx": [2], "type": "float", "name": "% Fairly Satisfied"}
         ]
