@@ -332,7 +332,7 @@ function draw_bar() {
 
   svg.append("g")
       .attr("class", "x axis")
-      .attr("transform", "translate(0," + (h) + ")")
+      .attr("transform", "translate(40," + (h) + ")")
       .call(xAxis)
       .selectAll("text")  
         .style("text-anchor", "end")
@@ -349,7 +349,7 @@ function draw_bar() {
       .attr("transform", "rotate(-90)")
       .attr("y", 12)
       .attr("x", 0)
-      .attr("dy", ".71em")
+      .attr("dy", ".5em")
       .style("text-anchor", "end")
       .text("Number of Patients");
 
@@ -376,14 +376,14 @@ function draw_bar() {
 
   legend.append("rect")
       .attr("x", w - 40)
-      .attr("y", function(d, i){ return h/4 - (i*48);})
+      .attr("y", function(d, i){ return h/6 - (i*48);})
       .attr("width", 18)
       .attr("height", 18)
       .style("fill", color);
 
   legend.append("text")
       .attr("x", w - 58)
-      .attr("y", function(d, i){ return h/4 - (i*44);})
+      .attr("y", function(d, i){ return h/6 - (i*44);})
       .attr("dy", ".35em")
       .style("text-anchor", "end")
       .text(function(d) { return d; });
