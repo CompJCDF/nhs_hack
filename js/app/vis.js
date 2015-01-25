@@ -229,8 +229,10 @@ function draw_map() {
 
     if(width > 500) {
         var x_pos = 100;
+        var y_off = 0;
     } else {
         var x_pos = 20;
+        var y_off = 40;
     }
 
     legend.append("rect")
@@ -248,7 +250,7 @@ function draw_map() {
 
     legend.append("text")
         .attr("x", x_pos)
-        .attr("y", height/4 - 40)
+        .attr("y", height/4 - 30 - y_off)
         .text(name);
 
     legend.append("text")
