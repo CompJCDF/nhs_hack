@@ -46,6 +46,28 @@
         ]
     },
 
+   {
+        "name": "Life Expectancy - Female (Years)",
+        "attribution_url": "https://statswales.wales.gov.uk/Catalogue/Health-and-Social-Care/Life-Expectancy/LifeExpectancy-by-LocalAuthority-Gender",
+        "attribution_desc": "Life expectancy by local authority ",
+        "attribution_org": "Stats Wales",
+        "fpath": "data/derived/life_expectancy/Life_expectancy_Female_1991-2012.csv",
+        "data_type": "timeseries",
+        "mapdesc":
+        {
+            "type": "local_authority",
+            "field_indx": 0
+        },
+        "attributes":
+        [
+            {
+                "name": "Life Expectancy",
+                "field_indx": [1,20],
+                "type": "float"
+            }
+        ]
+    },
+
     {
         "name": "A&E Waiting Times (#) -- Dec 2014",
         "attribution_url": "http://www.infoandstats.wales.nhs.uk/page.cfm?orgid=869&pid=62956",
